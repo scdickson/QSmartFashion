@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CDC265E81B65A3840083A8A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E71B65A3840083A8A9 /* AppDelegate.swift */; };
+		CDC265EA1B65A3840083A8A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E91B65A3840083A8A9 /* ViewController.swift */; };
+		CDC265ED1B65A3840083A8A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC265EB1B65A3840083A8A9 /* Main.storyboard */; };
+		CDC265EF1B65A3840083A8A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC265EE1B65A3840083A8A9 /* Assets.xcassets */; };
+		CDC265F21B65A3840083A8A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC265F01B65A3840083A8A9 /* LaunchScreen.storyboard */; };
+		CDC265FD1B65A3840083A8A9 /* QSmartFashionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265FC1B65A3840083A8A9 /* QSmartFashionTests.swift */; };
+		CDC266081B65A3840083A8A9 /* QSmartFashionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC266071B65A3840083A8A9 /* QSmartFashionUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CDC265F91B65A3840083A8A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDC265DC1B65A3840083A8A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDC265E31B65A3840083A8A9;
+			remoteInfo = QSmartFashion;
+		};
+		CDC266041B65A3840083A8A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDC265DC1B65A3840083A8A9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDC265E31B65A3840083A8A9;
+			remoteInfo = QSmartFashion;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CDC265E41B65A3840083A8A9 /* QSmartFashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSmartFashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDC265E71B65A3840083A8A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CDC265E91B65A3840083A8A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CDC265EC1B65A3840083A8A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CDC265EE1B65A3840083A8A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CDC265F11B65A3840083A8A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CDC265F31B65A3840083A8A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDC265F81B65A3840083A8A9 /* QSmartFashionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QSmartFashionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDC265FC1B65A3840083A8A9 /* QSmartFashionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSmartFashionTests.swift; sourceTree = "<group>"; };
+		CDC265FE1B65A3840083A8A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDC266031B65A3840083A8A9 /* QSmartFashionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QSmartFashionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDC266071B65A3840083A8A9 /* QSmartFashionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QSmartFashionUITests.swift; sourceTree = "<group>"; };
+		CDC266091B65A3840083A8A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CDC265E11B65A3840083A8A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDC265F51B65A3840083A8A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDC266001B65A3840083A8A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CDC265DB1B65A3840083A8A9 = {
+			isa = PBXGroup;
+			children = (
+				CDC265E61B65A3840083A8A9 /* QSmartFashion */,
+				CDC265FB1B65A3840083A8A9 /* QSmartFashionTests */,
+				CDC266061B65A3840083A8A9 /* QSmartFashionUITests */,
+				CDC265E51B65A3840083A8A9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CDC265E51B65A3840083A8A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CDC265E41B65A3840083A8A9 /* QSmartFashion.app */,
+				CDC265F81B65A3840083A8A9 /* QSmartFashionTests.xctest */,
+				CDC266031B65A3840083A8A9 /* QSmartFashionUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CDC265E61B65A3840083A8A9 /* QSmartFashion */ = {
+			isa = PBXGroup;
+			children = (
+				CDC265E71B65A3840083A8A9 /* AppDelegate.swift */,
+				CDC265E91B65A3840083A8A9 /* ViewController.swift */,
+				CDC265EB1B65A3840083A8A9 /* Main.storyboard */,
+				CDC265EE1B65A3840083A8A9 /* Assets.xcassets */,
+				CDC265F01B65A3840083A8A9 /* LaunchScreen.storyboard */,
+				CDC265F31B65A3840083A8A9 /* Info.plist */,
+			);
+			path = QSmartFashion;
+			sourceTree = "<group>";
+		};
+		CDC265FB1B65A3840083A8A9 /* QSmartFashionTests */ = {
+			isa = PBXGroup;
+			children = (
+				CDC265FC1B65A3840083A8A9 /* QSmartFashionTests.swift */,
+				CDC265FE1B65A3840083A8A9 /* Info.plist */,
+			);
+			path = QSmartFashionTests;
+			sourceTree = "<group>";
+		};
+		CDC266061B65A3840083A8A9 /* QSmartFashionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CDC266071B65A3840083A8A9 /* QSmartFashionUITests.swift */,
+				CDC266091B65A3840083A8A9 /* Info.plist */,
+			);
+			path = QSmartFashionUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CDC265E31B65A3840083A8A9 /* QSmartFashion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDC2660C1B65A3840083A8A9 /* Build configuration list for PBXNativeTarget "QSmartFashion" */;
+			buildPhases = (
+				CDC265E01B65A3840083A8A9 /* Sources */,
+				CDC265E11B65A3840083A8A9 /* Frameworks */,
+				CDC265E21B65A3840083A8A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QSmartFashion;
+			productName = QSmartFashion;
+			productReference = CDC265E41B65A3840083A8A9 /* QSmartFashion.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CDC265F71B65A3840083A8A9 /* QSmartFashionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDC2660F1B65A3840083A8A9 /* Build configuration list for PBXNativeTarget "QSmartFashionTests" */;
+			buildPhases = (
+				CDC265F41B65A3840083A8A9 /* Sources */,
+				CDC265F51B65A3840083A8A9 /* Frameworks */,
+				CDC265F61B65A3840083A8A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CDC265FA1B65A3840083A8A9 /* PBXTargetDependency */,
+			);
+			name = QSmartFashionTests;
+			productName = QSmartFashionTests;
+			productReference = CDC265F81B65A3840083A8A9 /* QSmartFashionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CDC266021B65A3840083A8A9 /* QSmartFashionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDC266121B65A3840083A8A9 /* Build configuration list for PBXNativeTarget "QSmartFashionUITests" */;
+			buildPhases = (
+				CDC265FF1B65A3840083A8A9 /* Sources */,
+				CDC266001B65A3840083A8A9 /* Frameworks */,
+				CDC266011B65A3840083A8A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CDC266051B65A3840083A8A9 /* PBXTargetDependency */,
+			);
+			name = QSmartFashionUITests;
+			productName = QSmartFashionUITests;
+			productReference = CDC266031B65A3840083A8A9 /* QSmartFashionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CDC265DC1B65A3840083A8A9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Qualcomm Incorporated";
+				TargetAttributes = {
+					CDC265E31B65A3840083A8A9 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					CDC265F71B65A3840083A8A9 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = CDC265E31B65A3840083A8A9;
+					};
+					CDC266021B65A3840083A8A9 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = CDC265E31B65A3840083A8A9;
+					};
+				};
+			};
+			buildConfigurationList = CDC265DF1B65A3840083A8A9 /* Build configuration list for PBXProject "QSmartFashion" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CDC265DB1B65A3840083A8A9;
+			productRefGroup = CDC265E51B65A3840083A8A9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CDC265E31B65A3840083A8A9 /* QSmartFashion */,
+				CDC265F71B65A3840083A8A9 /* QSmartFashionTests */,
+				CDC266021B65A3840083A8A9 /* QSmartFashionUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CDC265E21B65A3840083A8A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDC265F21B65A3840083A8A9 /* LaunchScreen.storyboard in Resources */,
+				CDC265EF1B65A3840083A8A9 /* Assets.xcassets in Resources */,
+				CDC265ED1B65A3840083A8A9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDC265F61B65A3840083A8A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDC266011B65A3840083A8A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CDC265E01B65A3840083A8A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDC265EA1B65A3840083A8A9 /* ViewController.swift in Sources */,
+				CDC265E81B65A3840083A8A9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDC265F41B65A3840083A8A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDC265FD1B65A3840083A8A9 /* QSmartFashionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDC265FF1B65A3840083A8A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDC266081B65A3840083A8A9 /* QSmartFashionUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CDC265FA1B65A3840083A8A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDC265E31B65A3840083A8A9 /* QSmartFashion */;
+			targetProxy = CDC265F91B65A3840083A8A9 /* PBXContainerItemProxy */;
+		};
+		CDC266051B65A3840083A8A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDC265E31B65A3840083A8A9 /* QSmartFashion */;
+			targetProxy = CDC266041B65A3840083A8A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CDC265EB1B65A3840083A8A9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDC265EC1B65A3840083A8A9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CDC265F01B65A3840083A8A9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDC265F11B65A3840083A8A9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CDC2660A1B65A3840083A8A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CDC2660B1B65A3840083A8A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CDC2660D1B65A3840083A8A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = QSmartFashion/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualcomm.QSmartFashion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CDC2660E1B65A3840083A8A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = QSmartFashion/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualcomm.QSmartFashion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CDC266101B65A3840083A8A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = QSmartFashionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualcomm.QSmartFashionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QSmartFashion.app/QSmartFashion";
+			};
+			name = Debug;
+		};
+		CDC266111B65A3840083A8A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = QSmartFashionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualcomm.QSmartFashionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QSmartFashion.app/QSmartFashion";
+			};
+			name = Release;
+		};
+		CDC266131B65A3840083A8A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = QSmartFashionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualcomm.QSmartFashionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = QSmartFashion;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		CDC266141B65A3840083A8A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = QSmartFashionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.qualcomm.QSmartFashionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = QSmartFashion;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CDC265DF1B65A3840083A8A9 /* Build configuration list for PBXProject "QSmartFashion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDC2660A1B65A3840083A8A9 /* Debug */,
+				CDC2660B1B65A3840083A8A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDC2660C1B65A3840083A8A9 /* Build configuration list for PBXNativeTarget "QSmartFashion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDC2660D1B65A3840083A8A9 /* Debug */,
+				CDC2660E1B65A3840083A8A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CDC2660F1B65A3840083A8A9 /* Build configuration list for PBXNativeTarget "QSmartFashionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDC266101B65A3840083A8A9 /* Debug */,
+				CDC266111B65A3840083A8A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CDC266121B65A3840083A8A9 /* Build configuration list for PBXNativeTarget "QSmartFashionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDC266131B65A3840083A8A9 /* Debug */,
+				CDC266141B65A3840083A8A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CDC265DC1B65A3840083A8A9 /* Project object */;
+}
