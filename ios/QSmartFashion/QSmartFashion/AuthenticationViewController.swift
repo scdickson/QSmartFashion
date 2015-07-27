@@ -33,7 +33,9 @@ class AuthenticationViewController: UIViewController {
         }
     }
     
-    func showValidationAlert(message: String, )
+    func showValidationAlert(message: String) {
+        
+    }
 
     @IBAction func logIn(sender: AnyObject) {
         dismissKeyboard()
