@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CDC265E81B65A3840083A8A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E71B65A3840083A8A9 /* AppDelegate.swift */; };
-		CDC265EA1B65A3840083A8A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E91B65A3840083A8A9 /* ViewController.swift */; };
+		CDC265EA1B65A3840083A8A9 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */; };
 		CDC265ED1B65A3840083A8A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC265EB1B65A3840083A8A9 /* Main.storyboard */; };
 		CDC265EF1B65A3840083A8A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDC265EE1B65A3840083A8A9 /* Assets.xcassets */; };
 		CDC265F21B65A3840083A8A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC265F01B65A3840083A8A9 /* LaunchScreen.storyboard */; };
@@ -42,7 +42,7 @@
 		7EA9DBBEF4FE33428020E288 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CDC265E41B65A3840083A8A9 /* QSmartFashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSmartFashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC265E71B65A3840083A8A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CDC265E91B65A3840083A8A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		CDC265EC1B65A3840083A8A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CDC265EE1B65A3840083A8A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDC265F11B65A3840083A8A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			children = (
 				CDC266151B65AC9F0083A8A9 /* DataModel */,
 				CDC265E71B65A3840083A8A9 /* AppDelegate.swift */,
-				CDC265E91B65A3840083A8A9 /* ViewController.swift */,
+				CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */,
 				CDC265EB1B65A3840083A8A9 /* Main.storyboard */,
 				CDC265EE1B65A3840083A8A9 /* Assets.xcassets */,
 				CDC265F01B65A3840083A8A9 /* LaunchScreen.storyboard */,
@@ -348,7 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDC266171B65ACD60083A8A9 /* SFUser.swift in Sources */,
-				CDC265EA1B65A3840083A8A9 /* ViewController.swift in Sources */,
+				CDC265EA1B65A3840083A8A9 /* AuthenticationViewController.swift in Sources */,
 				CDC265E81B65A3840083A8A9 /* AppDelegate.swift in Sources */,
 				CDC2661B1B65B26E0083A8A9 /* SFEmergencyContact.swift in Sources */,
 				CDC266191B65B0F80083A8A9 /* SFDataMeasurement.swift in Sources */,
