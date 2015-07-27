@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">QSmartFashion</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="login_username_placeholder">Your Email</string>
+    <string name="login_password_placeholder">Your Password</string>
+    <string name="login_login_button">Log In</string>
+    <string name="login_signup_button">Sign Up</string>
 </resources>
