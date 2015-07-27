@@ -3,12 +3,15 @@ package com.qualcomm.qsmartfashion;
 import android.app.Application;
 
 import com.parse.Parse;
+import com.parse.ParseUser;
 
 /**
  * Created by sdickson on 7/26/15.
  */
 public class QSmartFashion extends Application
 {
+    public ParseUser currentUser;
+
     public void onCreate()
     {
         Parse.enableLocalDatastore(this);

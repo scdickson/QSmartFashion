@@ -4,4 +4,10 @@
     <string name="login_password_placeholder">Your Password</string>
     <string name="login_login_button">Log In</string>
     <string name="login_signup_button">Sign Up</string>
+
+    <string name="login_error_dialog_title">Login Error</string>
+    <string name="login_error_dialog_message">Please check your username and password and try again.</string>
+    <string name="signup_error_dialog_title">Signup Error</string>
+    <string name="signup_error_dialog_message">We could not register you at this time. Please check your internet connection or try again later.</string>
+
 </resources>
