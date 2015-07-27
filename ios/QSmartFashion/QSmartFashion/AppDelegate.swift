@@ -7,15 +7,55 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    class ParseAPICredentials {
+        static let ApplicationId = "Mk2JtBAAnX2YvoePfGz9OUSgCmgIbjBmg1ZpKuko"
+        static let ClientKey = "l2yTXivnPawT72nueLBCmQQAY4cdkwpdjmXNBccw"
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        SFUser.registerSubclass()
+        Parse.setApplicationId(ParseAPICredentials.ApplicationId, clientKey: ParseAPICredentials.ClientKey)
+        
+        let user = SFUser()
+        user.username = "terrence"
+        user.password = "katzenbaer"
+        user.email = "tkatzenb@qti.qualcomm.com"
+        user.age = 22
+        user.weight = 195
+        user.height = 176
+        
+        user.signUpInBackgroundWithBlock {
+            (succeeded: Bool, error: NSError?) -> Void in
+            if let error = error {
+                let errorString = error.userInfo["error"] as? NSString
+                print(errorString)
+                // Show the errorString somewhere and let the user try again.
+            } else {
+                print("successfully created user.")
+                
+                // Creating dummy classes
+                let dataMeasurement = SFDataMeasurement(user: user)
+                dataMeasurement.temperature = 76
+                dataMeasurement.heartrate = 43
+                dataMeasurement.location = PFGeoPoint(latitude: 88, longitude: 88)
+                
+                let emergencyContact = SFEmergencyContact(user: user)
+                emergencyContact.name = "John Doe"
+                emergencyContact.phoneNumber = "18008675309"
+                
+                dataMeasurement.save()
+                emergencyContact.save()
+            }
+        }
+        
         return true
     }
 
