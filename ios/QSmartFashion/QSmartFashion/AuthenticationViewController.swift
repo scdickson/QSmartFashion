@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class AuthenticationViewController: UIViewController {
 
@@ -33,13 +34,47 @@ class AuthenticationViewController: UIViewController {
         }
     }
     
-    func showValidationAlert(message: String) {
+    private func showValidationAlert(message: String) {
         
+    }
+    
+    func validate(inout username: String, inout password: String) -> Bool { // @todo make this throw an exception
+        if let string = usernameField.text where !string.isEmpty {
+            username = string
+        } else {
+            print("email is empty")
+            // @todo: create an alert to the user
+            // and focus the email field
+            return false
+        }
+        
+        if let string = passwordField.text where !string.isEmpty {
+            password = string
+        } else {
+            print("password is empty")
+            // @todo: create an alert to the user
+            // and focus the password field
+            return false
+        }
+        return true
     }
 
     @IBAction func logIn(sender: AnyObject) {
         dismissKeyboard()
         
+        var username = "", password = ""
+        if validate(&username, password: &password) {
+            PFUser.logInWithUsernameInBackground(username, password: password) {
+                (user: PFUser?, logInError: NSError?) -> Void in
+                if let _ = user {
+                    self.presentingViewController!.dismissViewControllerAnimated(true) {
+                        NSNotificationCenter.defaultCenter().postNotificationName(QualcommNotification.User.DidLogin, object: self)
+                    }
+                } else {
+                    print("login error: \(logInError!.description)")
+                }
+            }
+        }
     }
 
     @IBAction func signUp(sender: AnyObject) {
@@ -47,22 +82,13 @@ class AuthenticationViewController: UIViewController {
         
         let user = SFUser()
         
-        if let string = usernameField.text where !string.isEmpty {
-            user.username = string
-            user.email = string
+        var _username = "", _password = ""
+        if validate(&_username, password: &_password) {
+            user.username = _username
+            user.email = _username
+            user.password = _password
         } else {
-            print("email is empty")
-            // @todo: create an alert to the user
-            // and focus the email field
-            return
-        }
-        
-        if let string = passwordField.text where !string.isEmpty {
-            user.password = string
-        } else {
-            print("password is empty")
-            // @todo: create an alert to the user
-            // and focus the password field
+            print("signup error")
             return
         }
 
@@ -78,6 +104,8 @@ class AuthenticationViewController: UIViewController {
                 // Show the errorString somewhere and let the user try again.
             } else {
                 print("successfully created user.")
+                
+                self.performSegueWithIdentifier(QualcommSegue.ShowSettingsController, sender: self as AnyObject)
                 
 //                // Creating dummy classes
 //                let dataMeasurement = SFDataMeasurement(user: user)
