@@ -9,6 +9,18 @@
 import UIKit
 import Parse
 
+class QualcommSegue {
+    static let ShowAuthenticationController = "com.qualcomm.segue.requireauthentication"
+    static let ShowSettingsController = "com.qualcomm.segue.showsettings"
+}
+
+class QualcommNotification {
+    class User {
+        static let DidLogout = "com.qualcomm.notification.user.didlogout"
+        static let DidLogin = "com.qualcomm.notification.user.didlogin"
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
