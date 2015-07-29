@@ -13,4 +13,7 @@ public class Constants
     //Parse keys
     public static final String PARSE_APPLICATION_KEY = "Mk2JtBAAnX2YvoePfGz9OUSgCmgIbjBmg1ZpKuko";
     public static final String PARSE_CLIENT_KEY = "l2yTXivnPawT72nueLBCmQQAY4cdkwpdjmXNBccw";
+
+    //Contact constants
+    public static final int MAX_CONTACTS = 5;
 }

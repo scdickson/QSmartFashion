@@ -10,7 +10,7 @@ import com.parse.ParseUser;
  */
 public class QSmartFashion extends Application
 {
-    public ParseUser currentUser;
+    public ParseUser parseUser;
 
     public void onCreate()
     {
