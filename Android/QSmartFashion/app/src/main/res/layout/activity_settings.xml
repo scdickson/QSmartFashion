@@ -1,6 +1,163 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/green"
+    tools:context=".SettingsActivity">
+
+    <LinearLayout
+        android:id="@+id/settings_top_layout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rounded_rectangle"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_weight="0.30"
+        android:layout_height="0dp">
+        <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/settings_age"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="10dp"
+                android:inputType="number"
+                android:layout_marginTop="10dp"
+                android:hint="@string/settings_age_placeholder"
+                android:textSize="14sp"
+                android:layout_width="0dp"
+                android:layout_weight="0.90"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="15sp"
+                android:textColor="#000000"
+                android:text="@string/settings_age_unit"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/settings_height_ft"
+                android:layout_marginBottom="5dp"
+                android:inputType="number"
+                android:hint="@string/settings_height_placeholder"
+                android:textSize="14sp"
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:text="@string/settings_height_ft_placeholder"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/settings_height_in"
+                android:layout_marginBottom="5dp"
+                android:inputType="number"
+                android:textSize="14sp"
+                android:layout_width="0dp"
+                android:layout_weight="0.4"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:textSize="30sp"
+                android:textColor="#000000"
+                android:text="@string/settings_height_in_placeholder"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/settings_weight"
+            android:layout_marginBottom="5dp"
+            android:inputType="number"
+            android:hint="@string/settings_weight_placeholder"
+            android:textSize="14sp"
+            android:layout_marginRight="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="0.90"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:layout_gravity="center_vertical"
+            android:text="@string/settings_weight_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/settings_middle_layout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_rectangle"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_weight="0.6"
+        android:layout_height="0dp">
+        <ListView
+            android:id="@+id/contact_list"
+            android:layout_width="match_parent"
+            android:layout_weight="0.95"
+            android:layout_height="0dp">
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_rectangle"
+        android:orientation="vertical"
+        android:paddingTop="3dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_weight="0.07"
+        android:layout_height="0dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/settings_cancel"
+                android:textColor="@color/off_red"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentLeft="true"
+                android:text="@string/settings_cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/settings_save"
+                android:textColor="@color/off_green"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"
+                android:layout_alignParentRight="true"
+                android:text="@string/settings_save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+
+        </LinearLayout>
 
 </LinearLayout>

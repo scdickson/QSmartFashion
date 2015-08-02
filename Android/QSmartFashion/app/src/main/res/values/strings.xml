@@ -10,4 +10,15 @@
     <string name="signup_error_dialog_title">Signup Error</string>
     <string name="signup_error_dialog_message">We could not register you at this time. Please check your internet connection or try again later.</string>
 
+    <string name="settings_age_placeholder">Your Age</string>
+    <string name="settings_age_unit">years</string>
+    <string name="settings_height_placeholder">Your Height</string>
+    <string name="settings_height_ft_placeholder">\'</string>
+    <string name="settings_height_in_placeholder">\"</string>
+    <string name="settings_weight_placeholder">Your Weight</string>
+    <string name="settings_weight_unit">lbs</string>
+    <string name="settings_save_button">Save</string>
+    <string name="settings_cancel_button">Cancel</string>
+    <string name="settings_edit_contacts_button">Set Contacts</string>
+
 </resources>
