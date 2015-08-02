@@ -1,13 +1,27 @@
 PODS:
   - Bolts/Tasks (1.2.0)
+  - MMDrawerController (0.6.0):
+    - MMDrawerController/Core (= 0.6.0)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
+    - MMDrawerController/MMDrawerVisualStates (= 0.6.0)
+    - MMDrawerController/Subclass (= 0.6.0)
+  - MMDrawerController/Core (0.6.0)
+  - MMDrawerController/MMDrawerBarButtonItem (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.6.0):
+    - MMDrawerController/Core
   - Parse (1.7.5.3):
     - Bolts/Tasks (>= 1.2.0)
 
 DEPENDENCIES:
+  - MMDrawerController
   - Parse
 
 SPEC CHECKSUMS:
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   Parse: 373adbb1ad2e34d383542c3b28f678c49ebe4881
 
 COCOAPODS: 0.38.2

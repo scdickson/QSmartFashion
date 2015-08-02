@@ -8,15 +8,23 @@
 
 import UIKit
 import Parse
+import MMDrawerController
 
 class MainViewController: UITableViewController {
+    
+    class CellIdentifiers {
+        static let HeartMeasurement = "HeartMeasurementCell"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showAuthenticationController",
             name: QualcommNotification.User.DidLogout, object: nil)
-        // Do any additional setup after loading the view.
+
+        self.navigationItem.setLeftBarButtonItem(
+            MMDrawerBarButtonItem(target: self, action: "openDrawer"),
+            animated: false)
     }
     
     deinit {
@@ -44,6 +52,13 @@ class MainViewController: UITableViewController {
     @IBAction func logOut(sender: AnyObject) {
         PFUser.logOut()
         NSNotificationCenter.defaultCenter().postNotificationName(QualcommNotification.User.DidLogout, object: self as AnyObject)
+    }
+    
+    func openDrawer() {
+        self.mm_drawerController.openDrawerSide(.Left, animated: true) {
+            (finished: Bool) -> Void in
+            
+        }
     }
 
     /*

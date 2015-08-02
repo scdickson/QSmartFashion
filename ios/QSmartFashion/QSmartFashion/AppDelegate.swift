@@ -21,10 +21,15 @@ class QualcommNotification {
     }
 }
 
+class ViewControllerIdentifier {
+    static let Drawer = "com.qualcomm.viewcontroller.drawer"
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var containerViewController: ContainerViewController!
     
     class ParseAPICredentials {
         static let ApplicationId = "Mk2JtBAAnX2YvoePfGz9OUSgCmgIbjBmg1ZpKuko"
@@ -35,6 +40,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         SFUser.registerSubclass()
         Parse.setApplicationId(ParseAPICredentials.ApplicationId, clientKey: ParseAPICredentials.ClientKey)
+        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainViewController = mainStoryboard.instantiateInitialViewController() as! UINavigationController
+        
+        let orphanStoryboard = UIStoryboard(name: "Orphan", bundle: nil)
+        let drawerViewController = orphanStoryboard.instantiateViewControllerWithIdentifier(ViewControllerIdentifier.Drawer)
+        
+        self.containerViewController = ContainerViewController(
+            centerViewController: mainViewController,
+            drawerViewController: drawerViewController
+        )
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        if let window = window {
+            window.rootViewController = self.containerViewController
+            window.makeKeyAndVisible()
+        } else {
+            fatalError("where is our window?")
+        }
         
         return true
     }

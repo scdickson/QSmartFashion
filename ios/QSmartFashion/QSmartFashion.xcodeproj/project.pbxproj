@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD9837571B6ED13400E97208 /* DrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9837561B6ED13400E97208 /* DrawerTableViewController.swift */; };
 		CDC265E81B65A3840083A8A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E71B65A3840083A8A9 /* AppDelegate.swift */; };
 		CDC265EA1B65A3840083A8A9 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */; };
 		CDC265ED1B65A3840083A8A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC265EB1B65A3840083A8A9 /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 		CDC2661B1B65B26E0083A8A9 /* SFEmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC2661A1B65B26E0083A8A9 /* SFEmergencyContact.swift */; };
 		CDC2661E1B65D12A0083A8A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC2661D1B65D12A0083A8A9 /* MainViewController.swift */; };
 		CDC266201B65D3120083A8A9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC2661F1B65D3120083A8A9 /* SettingsViewController.swift */; };
+		CDD88CDD1B6EC66100BF4AA5 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD88CDC1B6EC66100BF4AA5 /* ContainerViewController.swift */; };
+		CDD88CE61B6ED0E000BF4AA5 /* Orphan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD88CE51B6ED0E000BF4AA5 /* Orphan.storyboard */; };
 		F80920D97C248C5D1BC3249D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF4E03C2048CAF355E0DDD4 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,7 @@
 /* Begin PBXFileReference section */
 		2FC642EAA6BAB3F4F2189702 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7EA9DBBEF4FE33428020E288 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CD9837561B6ED13400E97208 /* DrawerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerTableViewController.swift; sourceTree = "<group>"; };
 		CDC265E41B65A3840083A8A9 /* QSmartFashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSmartFashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC265E71B65A3840083A8A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,9 @@
 		CDC2661A1B65B26E0083A8A9 /* SFEmergencyContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFEmergencyContact.swift; sourceTree = "<group>"; };
 		CDC2661D1B65D12A0083A8A9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CDC2661F1B65D3120083A8A9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CDD88CDC1B6EC66100BF4AA5 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		CDD88CDE1B6EC70500BF4AA5 /* QSmartFashion-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QSmartFashion-Bridging-Header.h"; sourceTree = "<group>"; };
+		CDD88CE51B6ED0E000BF4AA5 /* Orphan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Orphan.storyboard; sourceTree = "<group>"; };
 		CFF4E03C2048CAF355E0DDD4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -124,9 +131,10 @@
 			children = (
 				CDC266151B65AC9F0083A8A9 /* DataModel */,
 				CDC2661C1B65D1140083A8A9 /* View Controllers */,
+				CDD88CE41B6ED0BB00BF4AA5 /* Storyboards */,
 				CDC265E71B65A3840083A8A9 /* AppDelegate.swift */,
-				CDC265EB1B65A3840083A8A9 /* Main.storyboard */,
 				CDC265EE1B65A3840083A8A9 /* Assets.xcassets */,
+				CDD88CDE1B6EC70500BF4AA5 /* QSmartFashion-Bridging-Header.h */,
 				CDC265F01B65A3840083A8A9 /* LaunchScreen.storyboard */,
 				CDC265F31B65A3840083A8A9 /* Info.plist */,
 			);
@@ -164,11 +172,22 @@
 		CDC2661C1B65D1140083A8A9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CDD88CDC1B6EC66100BF4AA5 /* ContainerViewController.swift */,
+				CD9837561B6ED13400E97208 /* DrawerTableViewController.swift */,
 				CDC2661D1B65D12A0083A8A9 /* MainViewController.swift */,
 				CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */,
 				CDC2661F1B65D3120083A8A9 /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		CDD88CE41B6ED0BB00BF4AA5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CDC265EB1B65A3840083A8A9 /* Main.storyboard */,
+				CDD88CE51B6ED0E000BF4AA5 /* Orphan.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		D31643ED7FCAA2586C8278BA /* Pods */ = {
@@ -245,6 +264,7 @@
 		CDC265DC1B65A3840083A8A9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Qualcomm Incorporated";
 				TargetAttributes = {
@@ -286,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD88CE61B6ED0E000BF4AA5 /* Orphan.storyboard in Resources */,
 				CDC265F21B65A3840083A8A9 /* LaunchScreen.storyboard in Resources */,
 				CDC265EF1B65A3840083A8A9 /* Assets.xcassets in Resources */,
 				CDC265ED1B65A3840083A8A9 /* Main.storyboard in Resources */,
@@ -363,6 +384,8 @@
 			files = (
 				CDC266171B65ACD60083A8A9 /* SFUser.swift in Sources */,
 				CDC265EA1B65A3840083A8A9 /* AuthenticationViewController.swift in Sources */,
+				CD9837571B6ED13400E97208 /* DrawerTableViewController.swift in Sources */,
+				CDD88CDD1B6EC66100BF4AA5 /* ContainerViewController.swift in Sources */,
 				CDC266201B65D3120083A8A9 /* SettingsViewController.swift in Sources */,
 				CDC265E81B65A3840083A8A9 /* AppDelegate.swift in Sources */,
 				CDC2661B1B65B26E0083A8A9 /* SFEmergencyContact.swift in Sources */,
@@ -508,11 +531,14 @@
 			baseConfigurationReference = 7EA9DBBEF4FE33428020E288 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = QSmartFashion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qualcomm.QSmartFashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QSmartFashion/QSmartFashion-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -521,11 +547,13 @@
 			baseConfigurationReference = 2FC642EAA6BAB3F4F2189702 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = QSmartFashion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qualcomm.QSmartFashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QSmartFashion/QSmartFashion-Bridging-Header.h";
 			};
 			name = Release;
 		};

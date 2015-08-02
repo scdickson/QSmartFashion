@@ -14,4 +14,5 @@ class SFUser: PFUser {
     @NSManaged var weight: Double
     @NSManaged var height: Double
     @NSManaged var profilePicture: PFFile
+    @NSManaged var sex: String
 }
