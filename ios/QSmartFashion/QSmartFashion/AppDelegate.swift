@@ -22,8 +22,15 @@ class QualcommNotification {
 }
 
 class ViewControllerIdentifier {
+    static let Dashboard = "com.qualcomm.viewcontroller.dashboard"
+    static let Profile = "com.qualcomm.viewcontroller.profile"
+    static let Devices = "com.qualcomm.viewcontroller.devices"
+    static let EmergencyContacts = "com.qualcomm.viewcontroller.contacts"
     static let Drawer = "com.qualcomm.viewcontroller.drawer"
 }
+
+let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+let orphanStoryboard = UIStoryboard(name: "Orphan", bundle: nil)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,16 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SFUser.registerSubclass()
         Parse.setApplicationId(ParseAPICredentials.ApplicationId, clientKey: ParseAPICredentials.ClientKey)
         
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainViewController = mainStoryboard.instantiateInitialViewController() as! UINavigationController
-        
-        let orphanStoryboard = UIStoryboard(name: "Orphan", bundle: nil)
-        let drawerViewController = orphanStoryboard.instantiateViewControllerWithIdentifier(ViewControllerIdentifier.Drawer)
-        
-        self.containerViewController = ContainerViewController(
-            centerViewController: mainViewController,
-            drawerViewController: drawerViewController
-        )
+        self.containerViewController = ContainerViewController()
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         if let window = window {

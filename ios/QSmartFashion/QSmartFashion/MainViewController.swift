@@ -21,10 +21,6 @@ class MainViewController: UITableViewController {
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showAuthenticationController",
             name: QualcommNotification.User.DidLogout, object: nil)
-
-        self.navigationItem.setLeftBarButtonItem(
-            MMDrawerBarButtonItem(target: self, action: "openDrawer"),
-            animated: false)
     }
     
     deinit {
@@ -47,18 +43,6 @@ class MainViewController: UITableViewController {
     
     func showAuthenticationController() {
         self.performSegueWithIdentifier(QualcommSegue.ShowAuthenticationController, sender: self as AnyObject)
-    }
-    
-    @IBAction func logOut(sender: AnyObject) {
-        PFUser.logOut()
-        NSNotificationCenter.defaultCenter().postNotificationName(QualcommNotification.User.DidLogout, object: self as AnyObject)
-    }
-    
-    func openDrawer() {
-        self.mm_drawerController.openDrawerSide(.Left, animated: true) {
-            (finished: Bool) -> Void in
-            
-        }
     }
 
     /*

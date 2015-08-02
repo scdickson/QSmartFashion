@@ -8,16 +8,47 @@
 
 import UIKit
 import MMDrawerController
+import Parse
 
 class ContainerViewController: MMDrawerController {
+    
+    enum ControllerState: Int {
+        case Dashboard = 0
+        case Profile
+        case Devices
+        case EmergencyContacts
+        case Logout
+    }
+    
+    private var drawerController: DrawerTableViewController!
+    
+    private var dashboardController: UINavigationController!
+    private var profileController: UINavigationController!
+    private var devicesController: UINavigationController!
+    private var contactsController: UINavigationController!
 
-    init(centerViewController: UIViewController?, drawerViewController: UIViewController?) {
+    init() {
+        let drawerController = orphanStoryboard.instantiateViewControllerWithIdentifier(ViewControllerIdentifier.Drawer) as! DrawerTableViewController
+        
         super.init(
-            centerViewController: centerViewController,
-            leftDrawerViewController: drawerViewController,
+            centerViewController: UIViewController(),
+            leftDrawerViewController: drawerController,
             rightDrawerViewController: nil
         )
         
+        self.drawerController = drawerController
+        drawerController.containerViewController = self
+        
+        // Instantiate view controllers
+        self.dashboardController = mainStoryboard.instantiateViewControllerWithIdentifier(ViewControllerIdentifier.Dashboard) as! UINavigationController
+        
+        self.profileController = orphanStoryboard.instantiateViewControllerWithIdentifier(ViewControllerIdentifier.Profile) as! UINavigationController
+        
+        self.devicesController = orphanStoryboard.instantiateViewControllerWithIdentifier(ViewControllerIdentifier.Devices) as! UINavigationController
+        
+        self.contactsController = orphanStoryboard.instantiateViewControllerWithIdentifier(ViewControllerIdentifier.EmergencyContacts) as! UINavigationController
+        
+        // Configure MMDrawerController
         self.openDrawerGestureModeMask = .BezelPanningCenterView
         self.closeDrawerGestureModeMask = .All
         self.centerHiddenInteractionMode = .None
@@ -31,10 +62,10 @@ class ContainerViewController: MMDrawerController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        switchToController(.Dashboard)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +73,44 @@ class ContainerViewController: MMDrawerController {
         // Dispose of any resources that can be recreated.
     }
     
+    func switchToController(state: ControllerState) {
+        switch state {
+        case .Dashboard:
+            centerViewController = dashboardController
+        case .Profile:
+            centerViewController = profileController
+        case .Devices:
+            centerViewController = devicesController
+        case .EmergencyContacts:
+            centerViewController = contactsController
+        case .Logout:
+            PFUser.logOut()
+            NSNotificationCenter.defaultCenter().postNotificationName(QualcommNotification.User.DidLogout, object: self as AnyObject)
+        }
+        
+        if state != .Logout {
+            if let viewController = centerViewController.childViewControllers.first {
+                viewController.navigationItem.setLeftBarButtonItem(
+                    MMDrawerBarButtonItem(target: self, action: "openDrawer"),
+                    animated: false)
+            }
+        }
+        
+        closeDrawer()
+    }
+    
+    func openDrawer() {
+        openDrawerSide(.Left, animated: true) {
+            (finished: Bool) in
+            // @stub
+        }
+    }
+    
+    func closeDrawer() {
+        closeDrawerAnimated(true) { (finished: Bool) in
+            // @stub
+        }
+    }
 
     /*
     // MARK: - Navigation

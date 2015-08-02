@@ -10,6 +10,8 @@ import UIKit
 
 class DrawerTableViewController: UITableViewController {
 
+    var containerViewController: ContainerViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,10 +30,17 @@ class DrawerTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 20
+        return 20
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let desiredState =  ContainerViewController.ControllerState(rawValue: indexPath.row)
+        
+        if let state = desiredState {
+            containerViewController.switchToController(state)
         } else {
-            return 0
+            fatalError("unable to match drawer row to a controller state")
         }
     }
 
