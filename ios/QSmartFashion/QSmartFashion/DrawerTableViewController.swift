@@ -35,12 +35,16 @@ class DrawerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let desiredState =  ContainerViewController.ControllerState(rawValue: indexPath.row)
-        
-        if let state = desiredState {
-            containerViewController.switchToController(state)
+        if indexPath.section == 0 {
+            let desiredState =  ContainerViewController.ControllerState(rawValue: indexPath.row)
+            
+            if let state = desiredState {
+                containerViewController.switchToController(state)
+            } else {
+                fatalError("unable to match drawer row to a controller state")
+            }
         } else {
-            fatalError("unable to match drawer row to a controller state")
+            containerViewController.switchToController(.Logout)
         }
     }
 

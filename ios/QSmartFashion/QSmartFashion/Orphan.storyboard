@@ -135,7 +135,7 @@
             </objects>
             <point key="canvasLocation" x="838" y="210"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Your Profile-->
         <scene sceneID="f9h-la-dgE">
             <objects>
                 <tableViewController id="eVR-Wr-qho" sceneMemberID="viewController">
@@ -161,14 +161,14 @@
                             <outlet property="delegate" destination="eVR-Wr-qho" id="Dpf-yo-GL2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="nq9-Tq-Gdj"/>
+                    <navigationItem key="navigationItem" title="Your Profile" id="nq9-Tq-Gdj"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czT-mK-hkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1306" y="842"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Emergency Contacts-->
         <scene sceneID="1dg-uk-OhE">
             <objects>
                 <tableViewController id="Ez9-C9-UuI" sceneMemberID="viewController">
@@ -194,7 +194,7 @@
                             <outlet property="delegate" destination="Ez9-C9-UuI" id="3i7-ID-H9z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="kc4-eS-bu2"/>
+                    <navigationItem key="navigationItem" title="Emergency Contacts" id="kc4-eS-bu2"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npc-Z6-T9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,7 +241,7 @@
             </objects>
             <point key="canvasLocation" x="838" y="1501"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Your Devices-->
         <scene sceneID="JN7-El-OLN">
             <objects>
                 <tableViewController id="Qg1-nb-885" sceneMemberID="viewController">
@@ -267,7 +267,7 @@
                             <outlet property="delegate" destination="Qg1-nb-885" id="ffk-DX-0db"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="tCI-so-Et2"/>
+                    <navigationItem key="navigationItem" title="Your Devices" id="tCI-so-Et2"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5c-mP-dKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
