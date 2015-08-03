@@ -29,6 +29,10 @@ class ViewControllerIdentifier {
     static let Drawer = "com.qualcomm.viewcontroller.drawer"
 }
 
+class TableViewCellIdentifier {
+    static let Contact = "com.qualcomm.tableviewcell.contact"
+}
+
 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
 let orphanStoryboard = UIStoryboard(name: "Orphan", bundle: nil)
 

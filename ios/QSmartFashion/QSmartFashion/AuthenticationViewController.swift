@@ -92,7 +92,7 @@ class AuthenticationViewController: UIViewController {
             return
         }
 
-        user.age = 22
+        user.birthdate = NSDate(timeIntervalSince1970: NSTimeInterval(0))
         user.weight = 195
         user.height = 176
         

@@ -16,6 +16,10 @@ class SFDataMeasurement: PFObject, PFSubclassing {
     @NSManaged var temperature: Double
     @NSManaged var location: PFGeoPoint
     
+    override init() {
+        super.init()
+    }
+    
     init(user: SFUser) {
         super.init()
         self.user = user

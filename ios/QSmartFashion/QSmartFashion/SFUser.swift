@@ -10,9 +10,10 @@ import UIKit
 import Parse
 
 class SFUser: PFUser {
-    @NSManaged var age: Int
+    @NSManaged var name: String
+    @NSManaged var birthdate: NSDate
+    @NSManaged var sex: String
     @NSManaged var weight: Double
     @NSManaged var height: Double
     @NSManaged var profilePicture: PFFile
-    @NSManaged var sex: String
 }

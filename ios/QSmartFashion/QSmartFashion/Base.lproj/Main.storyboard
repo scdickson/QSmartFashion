@@ -322,10 +322,10 @@
             </objects>
             <point key="canvasLocation" x="2271" y="180"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Dashboard-->
         <scene sceneID="SMy-zi-o5o">
             <objects>
-                <navigationController storyboardIdentifier="com.qualcomm.viewcontroller.dashboard" automaticallyAdjustsScrollViewInsets="NO" id="e8U-dO-WkD" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="com.qualcomm.viewcontroller.dashboard" automaticallyAdjustsScrollViewInsets="NO" id="e8U-dO-WkD" userLabel="Dashboard" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NYm-k1-zwe">

@@ -11,11 +11,16 @@ import Parse
 
 class SFEmergencyContact: PFObject, PFSubclassing {
     
-    @NSManaged var user: SFUser
+    @NSManaged var user: PFUser
     @NSManaged var name: String
     @NSManaged var phoneNumber: String
+    @NSManaged var photo: PFFile
     
-    init(user: SFUser) {
+    override init() {
+        super.init()
+    }
+    
+    init(user: PFUser) {
         super.init()
         self.user = user
     }

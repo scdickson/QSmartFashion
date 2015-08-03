@@ -2,12 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A235d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Drawer Table View Controller-->
+        <!--Drawer-->
         <scene sceneID="ajM-Hr-0L5">
             <objects>
-                <tableViewController storyboardIdentifier="com.qualcomm.viewcontroller.drawer" id="fOo-NI-FVz" customClass="DrawerTableViewController" customModule="QSmartFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="com.qualcomm.viewcontroller.drawer" id="fOo-NI-FVz" userLabel="Drawer" customClass="DrawerTableViewController" customModule="QSmartFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="z3q-5O-cPl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,22 +173,66 @@
         <!--Emergency Contacts-->
         <scene sceneID="1dg-uk-OhE">
             <objects>
-                <tableViewController id="Ez9-C9-UuI" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="74C-63-pHg">
+                <tableViewController id="Ez9-C9-UuI" customClass="ContactsTableViewController" customModule="QSmartFashion" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="74C-63-pHg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="o9W-7p-LE9">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="com.qualcomm.tableviewcell.contact" id="o9W-7p-LE9" customClass="ContactTableViewCell" customModule="QSmartFashion" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="86" width="320" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o9W-7p-LE9" id="l6Z-pD-KTa">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_anon" translatesAutoresizingMaskIntoConstraints="NO" id="6N0-pj-6x4">
+                                            <rect key="frame" x="8" y="8" width="38.5" height="38.5"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="6N0-pj-6x4" secondAttribute="height" multiplier="1:1" id="3m4-Er-C4n"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuU-r5-vQT">
+                                            <rect key="frame" x="54" y="8" width="257.5" height="20.5"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" red="0.066666666666666666" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="888-555-1000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6s-HA-sPB">
+                                            <rect key="frame" x="54" y="28" width="95.5" height="16"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="x6s-HA-sPB" firstAttribute="leading" secondItem="AuU-r5-vQT" secondAttribute="leading" id="9xL-5J-UmU"/>
+                                        <constraint firstAttribute="topMargin" secondItem="AuU-r5-vQT" secondAttribute="top" id="AYw-CV-L8g"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="6N0-pj-6x4" secondAttribute="bottom" id="MOR-77-EAI"/>
+                                        <constraint firstItem="x6s-HA-sPB" firstAttribute="top" secondItem="AuU-r5-vQT" secondAttribute="bottom" id="MxY-A0-bEV"/>
+                                        <constraint firstAttribute="topMargin" secondItem="6N0-pj-6x4" secondAttribute="top" id="O80-h1-ECa"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="AuU-r5-vQT" secondAttribute="bottom" id="eoX-Zs-10G"/>
+                                        <constraint firstItem="AuU-r5-vQT" firstAttribute="leading" secondItem="6N0-pj-6x4" secondAttribute="trailing" constant="8" id="fwI-7g-cNh"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="6N0-pj-6x4" secondAttribute="leading" id="hkX-pm-e1f"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="AuU-r5-vQT" secondAttribute="trailing" id="ivQ-hH-WRb"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="eoX-Zs-10G"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="AuU-r5-vQT" id="WX5-BE-gyC"/>
+                                    <outlet property="phoneNumberLabel" destination="x6s-HA-sPB" id="C2d-jm-yKM"/>
+                                    <outlet property="profileImageView" destination="6N0-pj-6x4" id="uGc-Tr-RWQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -194,17 +240,23 @@
                             <outlet property="delegate" destination="Ez9-C9-UuI" id="3i7-ID-H9z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Emergency Contacts" id="kc4-eS-bu2"/>
+                    <navigationItem key="navigationItem" title="Emergency Contacts" id="kc4-eS-bu2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="34s-vj-Qs6">
+                            <connections>
+                                <action selector="showPicker:" destination="Ez9-C9-UuI" id="ezD-ou-zYb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npc-Z6-T9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1306" y="1501"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Profile-->
         <scene sceneID="DTO-2F-IvB">
             <objects>
-                <navigationController storyboardIdentifier="com.qualcomm.viewcontroller.profile" automaticallyAdjustsScrollViewInsets="NO" id="5Fv-Bg-mdO" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="com.qualcomm.viewcontroller.profile" automaticallyAdjustsScrollViewInsets="NO" id="5Fv-Bg-mdO" userLabel="Profile" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="V9J-QT-XLB">
@@ -221,10 +273,10 @@
             </objects>
             <point key="canvasLocation" x="838" y="842"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Emergency Contact-->
         <scene sceneID="bg4-6V-2Is">
             <objects>
-                <navigationController storyboardIdentifier="com.qualcomm.viewcontroller.contacts" automaticallyAdjustsScrollViewInsets="NO" id="9s7-gX-86W" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="com.qualcomm.viewcontroller.contacts" automaticallyAdjustsScrollViewInsets="NO" id="9s7-gX-86W" userLabel="Emergency Contact" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e2c-5R-pXS">
@@ -274,10 +326,10 @@
             </objects>
             <point key="canvasLocation" x="1306" y="2143"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Devices-->
         <scene sceneID="CGa-rP-6Se">
             <objects>
-                <navigationController storyboardIdentifier="com.qualcomm.viewcontroller.devices" automaticallyAdjustsScrollViewInsets="NO" id="q9D-iu-PH2" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="com.qualcomm.viewcontroller.devices" automaticallyAdjustsScrollViewInsets="NO" id="q9D-iu-PH2" userLabel="Devices" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Dm-RB-auO">
@@ -295,4 +347,7 @@
             <point key="canvasLocation" x="838" y="2143"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profile_anon" width="560" height="560"/>
+    </resources>
 </document>

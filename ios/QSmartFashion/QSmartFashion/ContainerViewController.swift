@@ -48,6 +48,8 @@ class ContainerViewController: MMDrawerController {
         
         self.contactsController = orphanStoryboard.instantiateViewControllerWithIdentifier(ViewControllerIdentifier.EmergencyContacts) as! UINavigationController
         
+        switchToController(.Dashboard)
+        
         // Configure MMDrawerController
         self.openDrawerGestureModeMask = .BezelPanningCenterView
         self.closeDrawerGestureModeMask = .All
@@ -60,12 +62,6 @@ class ContainerViewController: MMDrawerController {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        switchToController(.Dashboard)
     }
 
     override func didReceiveMemoryWarning() {

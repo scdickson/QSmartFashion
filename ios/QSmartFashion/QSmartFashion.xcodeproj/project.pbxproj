@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CD9837571B6ED13400E97208 /* DrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9837561B6ED13400E97208 /* DrawerTableViewController.swift */; };
+		CD98375D1B6EE63100E97208 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD98375C1B6EE63100E97208 /* ContactsTableViewController.swift */; };
+		CD98375F1B6EE90000E97208 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD98375E1B6EE90000E97208 /* ContactsUI.framework */; };
+		CD9837621B6EF3D300E97208 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9837611B6EF3D300E97208 /* ContactTableViewCell.swift */; };
 		CDC265E81B65A3840083A8A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E71B65A3840083A8A9 /* AppDelegate.swift */; };
 		CDC265EA1B65A3840083A8A9 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */; };
 		CDC265ED1B65A3840083A8A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC265EB1B65A3840083A8A9 /* Main.storyboard */; };
@@ -46,6 +49,11 @@
 		2FC642EAA6BAB3F4F2189702 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7EA9DBBEF4FE33428020E288 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CD9837561B6ED13400E97208 /* DrawerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerTableViewController.swift; sourceTree = "<group>"; };
+		CD9837581B6EE5F100E97208 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		CD9837591B6EE5F100E97208 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		CD98375C1B6EE63100E97208 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		CD98375E1B6EE90000E97208 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
+		CD9837611B6EF3D300E97208 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		CDC265E41B65A3840083A8A9 /* QSmartFashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSmartFashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC265E71B65A3840083A8A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD98375F1B6EE90000E97208 /* ContactsUI.framework in Frameworks */,
 				F80920D97C248C5D1BC3249D /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,9 +108,20 @@
 		C7205F832F1BB319A61019B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD98375E1B6EE90000E97208 /* ContactsUI.framework */,
+				CD9837581B6EE5F100E97208 /* AddressBook.framework */,
+				CD9837591B6EE5F100E97208 /* AddressBookUI.framework */,
 				CFF4E03C2048CAF355E0DDD4 /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD9837601B6EF3BC00E97208 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CD9837611B6EF3D300E97208 /* ContactTableViewCell.swift */,
+			);
+			name = "Table View Cells";
 			sourceTree = "<group>";
 		};
 		CDC265DB1B65A3840083A8A9 = {
@@ -172,11 +192,13 @@
 		CDC2661C1B65D1140083A8A9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CD9837601B6EF3BC00E97208 /* Table View Cells */,
 				CDD88CDC1B6EC66100BF4AA5 /* ContainerViewController.swift */,
 				CD9837561B6ED13400E97208 /* DrawerTableViewController.swift */,
 				CDC2661D1B65D12A0083A8A9 /* MainViewController.swift */,
 				CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */,
 				CDC2661F1B65D3120083A8A9 /* SettingsViewController.swift */,
+				CD98375C1B6EE63100E97208 /* ContactsTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -384,6 +406,8 @@
 			files = (
 				CDC266171B65ACD60083A8A9 /* SFUser.swift in Sources */,
 				CDC265EA1B65A3840083A8A9 /* AuthenticationViewController.swift in Sources */,
+				CD9837621B6EF3D300E97208 /* ContactTableViewCell.swift in Sources */,
+				CD98375D1B6EE63100E97208 /* ContactsTableViewController.swift in Sources */,
 				CD9837571B6ED13400E97208 /* DrawerTableViewController.swift in Sources */,
 				CDD88CDD1B6EC66100BF4AA5 /* ContainerViewController.swift in Sources */,
 				CDC266201B65D3120083A8A9 /* SettingsViewController.swift in Sources */,
