@@ -386,7 +386,9 @@
                             <outlet property="delegate" destination="Qg1-nb-885" id="ffk-DX-0db"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Devices" id="tCI-so-Et2"/>
+                    <navigationItem key="navigationItem" title="Your Devices" id="tCI-so-Et2">
+                        <barButtonItem key="rightBarButtonItem" title="Discover" id="rot-gW-spm"/>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5c-mP-dKd" userLabel="First Responder" sceneMemberID="firstResponder"/>

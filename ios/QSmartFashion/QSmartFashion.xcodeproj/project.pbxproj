@@ -11,6 +11,7 @@
 		CD98375D1B6EE63100E97208 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD98375C1B6EE63100E97208 /* ContactsTableViewController.swift */; };
 		CD98375F1B6EE90000E97208 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD98375E1B6EE90000E97208 /* ContactsUI.framework */; };
 		CD9837621B6EF3D300E97208 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9837611B6EF3D300E97208 /* ContactTableViewCell.swift */; };
+		CD9837651B6F04B600E97208 /* ContactCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9837641B6F04B600E97208 /* ContactCacheManager.swift */; };
 		CDC265E81B65A3840083A8A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E71B65A3840083A8A9 /* AppDelegate.swift */; };
 		CDC265EA1B65A3840083A8A9 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */; };
 		CDC265ED1B65A3840083A8A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC265EB1B65A3840083A8A9 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		CD98375C1B6EE63100E97208 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		CD98375E1B6EE90000E97208 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		CD9837611B6EF3D300E97208 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		CD9837641B6F04B600E97208 /* ContactCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCacheManager.swift; sourceTree = "<group>"; };
 		CDC265E41B65A3840083A8A9 /* QSmartFashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSmartFashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC265E71B65A3840083A8A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,14 @@
 			name = "Table View Cells";
 			sourceTree = "<group>";
 		};
+		CD9837631B6F047500E97208 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CD9837641B6F04B600E97208 /* ContactCacheManager.swift */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
 		CDC265DB1B65A3840083A8A9 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +159,7 @@
 		CDC265E61B65A3840083A8A9 /* QSmartFashion */ = {
 			isa = PBXGroup;
 			children = (
+				CD9837631B6F047500E97208 /* Domain */,
 				CDC266151B65AC9F0083A8A9 /* DataModel */,
 				CDC2661C1B65D1140083A8A9 /* View Controllers */,
 				CDD88CE41B6ED0BB00BF4AA5 /* Storyboards */,
@@ -411,6 +422,7 @@
 				CD9837571B6ED13400E97208 /* DrawerTableViewController.swift in Sources */,
 				CDD88CDD1B6EC66100BF4AA5 /* ContainerViewController.swift in Sources */,
 				CDC266201B65D3120083A8A9 /* SettingsViewController.swift in Sources */,
+				CD9837651B6F04B600E97208 /* ContactCacheManager.swift in Sources */,
 				CDC265E81B65A3840083A8A9 /* AppDelegate.swift in Sources */,
 				CDC2661B1B65B26E0083A8A9 /* SFEmergencyContact.swift in Sources */,
 				CDC266191B65B0F80083A8A9 /* SFDataMeasurement.swift in Sources */,
