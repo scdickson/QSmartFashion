@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="20dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Your Name"
+        android:textSize="17sp"
+        android:textColor="#11b2b2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/settings_name"
+        android:textSize="15sp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Sex"
+        android:textSize="17sp"
+        android:textColor="#11b2b2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Spinner
+        android:id="@+id/settings_sex"
+        android:entries="@array/sex_options"
+        android:textSize="15sp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="Weight (lbs)"
+        android:textSize="17sp"
+        android:textColor="#11b2b2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/settings_weight"
+        android:layout_marginBottom="15dp"
+        android:inputType="number"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginRight="5dp"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content">
+        <TextView
+            android:text="Height (ft)"
+            android:textSize="17sp"
+            android:textColor="#11b2b2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/settings_height_ft"
+            android:inputType="number"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content">
+        <TextView
+            android:text="Height (in)"
+            android:textSize="17sp"
+            android:textColor="#11b2b2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/settings_height_in"
+            android:inputType="number"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:text="Birth Date"
+        android:textSize="17sp"
+        android:textColor="#11b2b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:editable="false"
+        android:focusable="false"
+        android:id="@+id/settings_birthdate"
+        android:textSize="15sp"
+        android:inputType="date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

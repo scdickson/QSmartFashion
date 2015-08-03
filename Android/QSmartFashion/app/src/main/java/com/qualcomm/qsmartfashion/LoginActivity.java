@@ -46,7 +46,7 @@ public class LoginActivity extends Activity implements View.OnClickListener
                 ParseUser.logInInBackground(email.getText().toString(), password.getText().toString(), new LogInCallback() {
                     public void done(ParseUser user, ParseException e) {
                         if (user != null) {
-                            Intent intent = new Intent(context, TrackerActivity.class);
+                            Intent intent = new Intent(context, MetricsActivity.class);
                             startActivity(intent);
                             overridePendingTransition(R.animator.slide_out_to_bottom, R.animator.slide_in_from_bottom);
                         } else {
@@ -69,11 +69,23 @@ public class LoginActivity extends Activity implements View.OnClickListener
         {
             if(!email.getText().toString().isEmpty() && !password.getText().toString().isEmpty())
             {
-                Intent intent = new Intent(context, SettingsActivity.class);
+                Intent intent = new Intent(context, MetricsActivity.class);
                 intent.putExtra("email", email.getText().toString());
                 intent.putExtra("password", password.getText().toString());
                 startActivity(intent);
-                overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
+            }
+            else
+            {
+                new AlertDialog.Builder(context)
+                        .setTitle("Error")
+                        .setMessage("Please enter your email and password before signing up.")
+                        .setNegativeButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
             }
         }
     }

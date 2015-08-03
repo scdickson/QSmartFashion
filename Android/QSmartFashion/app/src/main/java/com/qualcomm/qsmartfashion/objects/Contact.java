@@ -1,4 +1,6 @@
-package com.qualcomm.qsmartfashion.Objects;
+package com.qualcomm.qsmartfashion.objects;
+
+import android.graphics.Bitmap;
 
 import java.io.Serializable;
 
@@ -11,6 +13,7 @@ public class Contact implements Serializable
     public String id;
     public String name = "";
     public String phone_number = "";
+    public int photo_id = -1;
 
     public boolean equals(Object other)
     {

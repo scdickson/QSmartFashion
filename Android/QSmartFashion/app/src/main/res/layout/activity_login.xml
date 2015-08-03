@@ -1,11 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/green"
+    android:background="#11B2B2"
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/login_logo"
         android:layout_margin="5dp"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content" />
         <EditText
             android:id="@+id/login_password"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:inputType="textPassword"
             android:hint="@string/login_password_placeholder"
             android:textSize="14sp"
@@ -44,7 +44,7 @@
         <TextView
             android:id="@+id/login_login"
             android:layout_marginBottom="5dp"
-            android:textColor="@color/off_red"
+            android:textColor="#11B2B2"
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_gravity="center_horizontal"
@@ -54,10 +54,10 @@
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/login_signup"
-            android:textColor="@color/off_red"
+            android:textColor="#11B2B2"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="15dp"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:text="@string/login_signup_button"

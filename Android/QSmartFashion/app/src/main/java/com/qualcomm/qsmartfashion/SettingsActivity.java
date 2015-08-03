@@ -7,17 +7,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Adapter;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,9 +24,8 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
-import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
-import com.qualcomm.qsmartfashion.Objects.Contact;
+import com.qualcomm.qsmartfashion.objects.Contact;
 import com.qualcomm.qsmartfashion.adapters.ContactListAdapter;
 import com.qualcomm.qsmartfashion.utils.UnitConverter;
 
@@ -156,17 +153,11 @@ public class SettingsActivity extends Activity implements View.OnClickListener
                             newContact.id = obj.getObjectId();
                             newContact.name = obj.getString("name");
                             newContact.phone_number = obj.getString("phoneNumber");
+                            newContact.photo_id = obj.getInt("photo_id");
                             contacts.add(newContact);
                         }
-                        while (contacts.size() < Constants.MAX_CONTACTS) {
-                            Contact emptyContact = new Contact();
-                            emptyContact.id = null;
-                            emptyContact.name = null;
-                            emptyContact.phone_number = null;
-                            contacts.add(emptyContact);
-                        }
 
-                        contactsAdapter = new ContactListAdapter(context, newContactHandler, deleteContactHandler);
+                        contactsAdapter = new ContactListAdapter(context, deleteContactHandler);
                         contactsList.setAdapter(contactsAdapter);
                         if(progress.isShowing())
                         {
@@ -180,14 +171,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener
         }
         else
         {
-            while (contacts.size() < Constants.MAX_CONTACTS) {
-                Contact emptyContact = new Contact();
-                emptyContact.name = null;
-                emptyContact.phone_number = null;
-                contacts.add(emptyContact);
-            }
-
-            contactsAdapter = new ContactListAdapter(context, newContactHandler, deleteContactHandler);
+            contactsAdapter = new ContactListAdapter(context, deleteContactHandler);
             contactsList.setAdapter(contactsAdapter);
         }
 
@@ -220,7 +204,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener
     private void updateExistingUser()
     {
         ParseUser user = ((QSmartFashion) context.getApplicationContext()).parseUser;
-        user.put("age", Integer.parseInt(age.getText().toString()));
+        user.put("birthdate", Integer.parseInt(age.getText().toString()));
 
         int[] height_imperial = {Integer.parseInt(height_ft.getText().toString()), Integer.parseInt(height_in.getText().toString())};
         user.put("height", UnitConverter.feetInchesToCentimeters(height_imperial));
@@ -249,7 +233,7 @@ public class SettingsActivity extends Activity implements View.OnClickListener
                 if (e == null) {
                     Intent intent = new Intent(context, TrackerActivity.class);
                     startActivity(intent);
-                    overridePendingTransition(R.animator.slide_out, R.animator.slide_in);
+
                 } else {
                     new AlertDialog.Builder(context)
                             .setTitle(getResources().getString(R.string.signup_error_dialog_title))
@@ -291,6 +275,27 @@ public class SettingsActivity extends Activity implements View.OnClickListener
                 contact.put("phoneNumber", c.phone_number);
                 contact.saveInBackground();
             }
+        }
+    }
+
+    private Bitmap queryContactImage(int imageDataRow) {
+        Cursor c = context.getContentResolver().query(ContactsContract.Data.CONTENT_URI, new String[] {
+                ContactsContract.CommonDataKinds.Photo.PHOTO
+        }, ContactsContract.Data._ID + "=?", new String[] {
+                Integer.toString(imageDataRow)
+        }, null);
+        byte[] imageBytes = null;
+        if (c != null) {
+            if (c.moveToFirst()) {
+                imageBytes = c.getBlob(0);
+            }
+            c.close();
+        }
+
+        if (imageBytes != null) {
+            return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+        } else {
+            return null;
         }
     }
 

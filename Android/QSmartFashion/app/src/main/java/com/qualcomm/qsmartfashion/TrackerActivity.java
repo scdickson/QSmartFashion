@@ -3,9 +3,11 @@ package com.qualcomm.qsmartfashion;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.ParseUser;
 
@@ -40,6 +42,9 @@ public class TrackerActivity extends Activity implements View.OnClickListener
             startActivity(intent);
             overridePendingTransition(R.animator.slide_in_from_bottom, R.animator.slide_out_to_bottom);
         }
+
+        //SmsManager smsManager = SmsManager.getDefault();
+        //smsManager.sendTextMessage("7853933655", null, "HELLO", null, null);
 
     }
 

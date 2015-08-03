@@ -20,5 +20,24 @@
     <string name="settings_save_button">Save</string>
     <string name="settings_cancel_button">Cancel</string>
     <string name="settings_edit_contacts_button">Set Contacts</string>
+    <string name="title_activity_metrics">MetricsActivity</string>
+
+    <string name="title_section_dashboard">Dashboard</string>
+    <string name="title_section_profile">Profile</string>
+    <string name="title_section_devices">Devices</string>
+    <string name="title_section_contacts">Emergency Contacts</string>
+    <string name="title_section_logout">Logout</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string-array name="sex_options">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 
 </resources>
