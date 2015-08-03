@@ -23,7 +23,6 @@ import android.widget.TextView;
 import com.qualcomm.qsmartfashion.fragments.SOSContactFragment;
 import com.qualcomm.qsmartfashion.objects.Contact;
 import com.qualcomm.qsmartfashion.R;
-import com.qualcomm.qsmartfashion.SettingsActivity;
 
 /**
  * Created by sdickson on 7/29/15.

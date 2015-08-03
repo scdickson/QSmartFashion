@@ -102,7 +102,7 @@ public class MetricsActivity extends ActionBarActivity implements NavigationDraw
                 break;
             case 4:
                 mTitle = getString(R.string.title_section_logout);
-                application.parseUser.logOut();
+                ParseUser.getCurrentUser().logOut();
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.animator.slide_in_from_bottom, R.animator.slide_out_to_bottom);
