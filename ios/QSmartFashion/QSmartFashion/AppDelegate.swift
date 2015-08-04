@@ -10,6 +10,7 @@ import UIKit
 import Parse
 
 class QualcommSegue {
+    static let ShowBirthdatePickerController = "com.qualcomm.sf.segue.profile.selectbirthdate"
     static let ShowAuthenticationController = "com.qualcomm.segue.requireauthentication"
     static let ShowSettingsController = "com.qualcomm.segue.showsettings"
 }
