@@ -10,7 +10,7 @@ import UIKit
 
 class DrawerTableViewController: UITableViewController {
 
-    var containerViewController: ContainerViewController!
+    weak var containerViewController: ContainerViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()

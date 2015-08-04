@@ -19,16 +19,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green" translatesAutoresizingMaskIntoConstraints="NO" id="rh2-5Z-VCT" userLabel="background image">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green" translatesAutoresizingMaskIntoConstraints="NO" id="rh2-5Z-VCT" userLabel="background image">
                                 <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
                                 <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="NFc-IE-3cY">
-                                <rect key="frame" x="72" y="21" width="176" height="165.5"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="NFc-IE-3cY" secondAttribute="height" multiplier="173:162" id="taK-6U-lUv"/>
-                                </constraints>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMa-SN-Yoa" userLabel="background for Auth Box">
                                 <rect key="frame" x="12" y="194.5" width="296" height="176"/>
@@ -60,7 +53,7 @@
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                         <state key="normal" title="Log In">
-                                            <color key="titleColor" red="1" green="0.41568627450000001" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.066666666666666666" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gHe-vQ-4BC"/>
@@ -71,7 +64,7 @@
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                         <state key="normal" title="Sign Up">
-                                            <color key="titleColor" red="1" green="0.41568627450000001" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.066666666666666666" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tHI-cr-I8X"/>
@@ -80,9 +73,16 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="NFc-IE-3cY">
+                                <rect key="frame" x="72" y="21" width="176" height="165.5"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NFc-IE-3cY" secondAttribute="height" multiplier="173:162" id="taK-6U-lUv"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="rh2-5Z-VCT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="9Yo-8h-ZQx"/>
                             <constraint firstItem="NFc-IE-3cY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="1" id="9gf-dw-50b"/>

@@ -17,29 +17,29 @@ class ContactsTableViewController: UITableViewController, CNContactPickerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItems = [addBarButtonItem, self.editButtonItem()]
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-        print("loading contacts...")
-        if let query = SFEmergencyContact.query() {
-            query.whereKey("user", equalTo: PFUser.currentUser()!)
-            query.findObjectsInBackgroundWithBlock {
-                (objects: [AnyObject]?, error: NSError?) -> Void in
-                
-                if error == nil {
-                    self.contacts = objects as! [SFEmergencyContact]
-                    self.tableView.reloadData()
-                    print("loaded contacts!")
+        self.navigationItem.rightBarButtonItems = [addBarButtonItem, self.editButtonItem()]
+        
+        do {
+            try self.contacts = ContactCacheManager.fetchContacts()
+            print("loaded contacts from cache!")
+        } catch ContactCacheFetchError.NotCached {
+            if let query = SFEmergencyContact.query() {
+                query.whereKey("user", equalTo: PFUser.currentUser()!)
+                query.findObjectsInBackgroundWithBlock {
+                    (objects: [AnyObject]?, error: NSError?) -> Void in
+                    
+                    if error == nil {
+                        self.contacts = objects as! [SFEmergencyContact]
+                        self.tableView.reloadData()
+                        print("loaded contacts from server!")
+                        
+                        self.cacheContacts()
+                    }
                 }
             }
+        } catch {
+            print("unknown error occurred while fetching contacts")
         }
     }
 
@@ -109,10 +109,14 @@ class ContactsTableViewController: UITableViewController, CNContactPickerDelegat
             print("no profile picture")
         }
         
+        self.contacts.append(newContact)
+        self.tableView.reloadData()
         newContact.saveInBackgroundWithBlock {
             (succeeded: Bool, error: NSError?) -> Void in
             if succeeded {
                 print("contact successfully saved")
+                
+                self.cacheContacts()
             } else {
                 print("contact was not saved")
             }
@@ -125,12 +129,23 @@ class ContactsTableViewController: UITableViewController, CNContactPickerDelegat
         let contact = self.contacts[indexPath.row]
         cell.nameLabel.text = contact.name
         cell.phoneNumberLabel.text = contact.phoneNumber
+        
+        if let imageFile = contact.photo {
+            if imageFile.isDataAvailable {
+                if let imageData = imageFile.getData(), let image = UIImage(data: imageData) {
+                    cell.profileImageView.image = image
+                } else {
+                    print("unable to put data into image")
+                }
+            } else {
+                print("data is not available")
+            }
+        }
 
         return cell
     }
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
 
@@ -142,14 +157,13 @@ class ContactsTableViewController: UITableViewController, CNContactPickerDelegat
                 (succeeded: Bool, error: NSError?) -> Void in
                 if succeeded {
                     print("deleted '\(contact.name)' from my contacts!")
+                    self.cacheContacts()
                 } else {
                     print("unable to delete contact")
                 }
             }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
@@ -163,21 +177,19 @@ class ContactsTableViewController: UITableViewController, CNContactPickerDelegat
         }
         self.navigationItem.setRightBarButtonItems(barButtonItems, animated: true)
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    private func cacheContacts() {
+        do { // cache the contacts
+            try ContactCacheManager.cacheContacts(self.contacts)
+            print("cached contacts!")
+        } catch (ContactCacheStoreError.UnableToCache) {
+            print("unable to cache contacts")
+        } catch (ContactCacheStoreError.UnableToCreateDirectory) {
+            print("unable to create contacts cache directory")
+        } catch {
+            print("unknown error occurred while caching contacts")
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

@@ -9,15 +9,24 @@
 import UIKit
 import Parse
 
-class SFEmergencyContact: PFObject, PFSubclassing {
+class SFEmergencyContact: PFObject, PFSubclassing, NSCoding {
     
     @NSManaged var user: PFUser
     @NSManaged var name: String
     @NSManaged var phoneNumber: String
-    @NSManaged var photo: PFFile
+    @NSManaged var photo: PFFile?
     
     override init() {
         super.init()
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init()
+        
+        user = PFUser.currentUser()!
+        objectId = aDecoder.decodeObjectForKey("objectId") as? String
+        name = aDecoder.decodeObjectForKey("name") as! String
+        phoneNumber = aDecoder.decodeObjectForKey("phoneNumber") as! String
     }
     
     init(user: PFUser) {
@@ -36,5 +45,11 @@ class SFEmergencyContact: PFObject, PFSubclassing {
     
     static func parseClassName() -> String {
         return "EmergencyContact"
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(objectId, forKey: "objectId")
+        aCoder.encodeObject(name, forKey: "name")
+        aCoder.encodeObject(phoneNumber, forKey: "phoneNumber")
     }
 }
