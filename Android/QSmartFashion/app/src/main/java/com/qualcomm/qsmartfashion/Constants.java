@@ -1,5 +1,7 @@
 package com.qualcomm.qsmartfashion;
 
+import java.util.UUID;
+
 /**
  * Created by sdickson on 7/26/15.
  */
@@ -13,4 +15,11 @@ public class Constants
     //Parse keys
     public static final String PARSE_APPLICATION_KEY = "Mk2JtBAAnX2YvoePfGz9OUSgCmgIbjBmg1ZpKuko";
     public static final String PARSE_CLIENT_KEY = "l2yTXivnPawT72nueLBCmQQAY4cdkwpdjmXNBccw";
+
+    //BLE Constants
+    public static final int BLE_CUTOFF_RSSI = -100;
+    public static final UUID QSF_SERVICE = UUID.fromString("713D0000-503E-4C75-BA94-3148F18D941E");
+    public static final UUID QSF_DEVICE_RX_UUID = UUID.fromString("713D0002-503E-4C75-BA94-3148F18D941E");
+    public static final UUID QSF_DEVICE_TX_UUID = UUID.fromString("713D0003-503E-4C75-BA94-3148F18D941E");
+    public static final UUID QSF_DEVICE_DESCRIPTOR = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
 }

@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 
 import com.parse.ParseUser;
+import com.qualcomm.qsmartfashion.fragments.DashboardFragment;
+import com.qualcomm.qsmartfashion.fragments.DeviceFragment;
 import com.qualcomm.qsmartfashion.fragments.ProfileFragment;
 import com.qualcomm.qsmartfashion.fragments.SOSContactFragment;
 import com.qualcomm.qsmartfashion.objects.Contact;
@@ -79,7 +81,7 @@ public class MetricsActivity extends ActionBarActivity implements NavigationDraw
             case 0:
                 mTitle = getString(R.string.title_section_dashboard);
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .replace(R.id.container, DashboardFragment.newInstance(position + 1))
                         .commit();
                 break;
             case 1:
@@ -91,7 +93,7 @@ public class MetricsActivity extends ActionBarActivity implements NavigationDraw
             case 2:
                 mTitle = getString(R.string.title_section_devices);
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .replace(R.id.container, DeviceFragment.newInstance(position + 1))
                         .commit();
                 break;
             case 3:
