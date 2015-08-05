@@ -8,30 +8,33 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UITableViewController {
     
-    @IBOutlet var heartHistoryView: UIWebView
-    @IBOutlet var temperatureHistoryView: UIWebView
+    @IBOutlet var heartHistoryView: UIWebView!
+    @IBOutlet var temperatureHistoryView: UIWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let baseUrl = NSBundle.mainBundle().bundleURL
-        let heartHistoryHtmlPath = NSBundle.mainBundle().pathForResource("cv", ofType: "html")
-        let temperatureHistoryHtmlPath = heartHistoryHtmlPath
-        
-        do {
-            let heartHistoryHtml = try NSString(contentsOfFile: heartHistoryHtmlPath, encoding: NSUTF8StringEncoding)
-            heartHistoryView.loadHTMLString(heartHistoryHtml, baseURL: baseUrl)
-        } catch {
-            print("unable to load heart history html")
-        }
-        
-        do {
-            let temperatureHistoryHtml = try NSString(contentsOfFile: temperatureHistoryHtmlPath, encoding: NSUTF8StringEncoding)
-            temperatureHistoryView.loadHTMLString(temperatureHistoryHtml, baseURL: baseUrl)
-        } catch {
-            print("unable to load heart history html")
+        if let heartHistoryHtmlPath = NSBundle.mainBundle().pathForResource("cv", ofType: "html") {
+            let temperatureHistoryHtmlPath = heartHistoryHtmlPath
+            
+            do {
+                let heartHistoryHtml = try String(contentsOfFile: heartHistoryHtmlPath, encoding: NSUTF8StringEncoding)
+                heartHistoryView.loadHTMLString(heartHistoryHtml, baseURL: baseUrl)
+            } catch {
+                print("unable to load heart history html")
+            }
+            
+            do {
+                let temperatureHistoryHtml = try String(contentsOfFile: temperatureHistoryHtmlPath, encoding: NSUTF8StringEncoding)
+                temperatureHistoryView.loadHTMLString(temperatureHistoryHtml, baseURL: baseUrl)
+            } catch {
+                print("unable to load heart history html")
+            }
+        } else {
+            fatalError("cannot find cv.html")
         }
     }
     
