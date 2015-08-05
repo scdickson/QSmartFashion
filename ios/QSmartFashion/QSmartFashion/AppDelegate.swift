@@ -23,6 +23,7 @@ class QualcommNotification {
 }
 
 class ViewControllerIdentifier {
+    static let Authentication = "com.qualcomm.viewcontroller.authentication"
     static let Dashboard = "com.qualcomm.viewcontroller.dashboard"
     static let Profile = "com.qualcomm.viewcontroller.profile"
     static let Devices = "com.qualcomm.viewcontroller.devices"

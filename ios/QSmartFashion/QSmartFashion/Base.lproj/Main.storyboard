@@ -10,7 +10,7 @@
         <!--Authentication View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AuthenticationViewController" customModule="QSmartFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="com.qualcomm.viewcontroller.authentication" id="BYZ-38-t0r" customClass="AuthenticationViewController" customModule="QSmartFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -279,7 +279,6 @@
                     <connections>
                         <outlet property="heartHistoryView" destination="DHK-Yg-Rp3" id="Zcm-nu-G1b"/>
                         <outlet property="temperatureHistoryView" destination="sGo-i9-7ZR" id="aqq-S8-lDw"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="com.qualcomm.segue.requireauthentication" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="hcV-za-h0x"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lrr-qO-YQr" userLabel="First Responder" sceneMemberID="firstResponder"/>

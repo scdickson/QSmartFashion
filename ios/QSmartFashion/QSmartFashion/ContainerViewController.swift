@@ -63,10 +63,13 @@ class ContainerViewController: MMDrawerController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if PFUser.currentUser() == nil {
+            print("no user is logged in, displaying authentication controller")
+            presentAuthenticationController()
+        }
     }
     
     func switchToController(state: ControllerState) {
@@ -80,8 +83,10 @@ class ContainerViewController: MMDrawerController {
         case .EmergencyContacts:
             centerViewController = contactsController
         case .Logout:
+            print("logging out!")
             PFUser.logOut()
-            NSNotificationCenter.defaultCenter().postNotificationName(QualcommNotification.User.DidLogout, object: self as AnyObject)
+//            NSNotificationCenter.defaultCenter().postNotificationName(QualcommNotification.User.DidLogout, object: self as AnyObject)
+            presentAuthenticationController()
         }
         
         if state != .Logout {
@@ -105,6 +110,13 @@ class ContainerViewController: MMDrawerController {
     func closeDrawer() {
         closeDrawerAnimated(true) { (finished: Bool) in
             // @stub
+        }
+    }
+    
+    func presentAuthenticationController() {
+        let viewController = mainStoryboard.instantiateViewControllerWithIdentifier(ViewControllerIdentifier.Authentication)
+        self.presentViewController(viewController, animated: true) {
+            //
         }
     }
 

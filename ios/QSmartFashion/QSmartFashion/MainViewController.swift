@@ -35,10 +35,6 @@ class MainViewController: UITableViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if PFUser.currentUser() == nil {
-            print("no user is logged in, displaying authentication controller")
-            showAuthenticationController()
-        }
     }
     
     func showAuthenticationController() {

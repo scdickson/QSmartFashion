@@ -11,7 +11,7 @@ import UIKit
 class UnitConverter {
     
     static func toImperial(centimeters centimeters: Double) -> (feet: Double, inches: Double) {
-        let totalInches = centimeters * 0.393701
+        let totalInches = centimeters / 2.54
         let feet = floor(totalInches / 12.0)
         let inches = totalInches - (feet * 12)
         return (feet: feet, inches: inches)
@@ -23,7 +23,7 @@ class UnitConverter {
     }
     
     static func toPounds(kilograms kilograms: Double) -> Double {
-        return kilograms * 2.20462
+        return kilograms / 0.453592
     }
     
     static func toKilograms(pounds pounds: Double) -> Double {

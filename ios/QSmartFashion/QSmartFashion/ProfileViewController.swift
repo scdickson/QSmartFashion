@@ -23,7 +23,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     var birthdate: NSDate? {
         willSet {
             if let date = newValue {
-                birthdateTextField.text = date.description
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+                birthdateTextField.text = dateFormatter.stringFromDate(date)
             }
         }
     }
