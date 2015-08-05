@@ -12,6 +12,16 @@ public class UnitConverter
         return pounds * Constants.KILOGRAMS_PER_POUND;
     }
 
+    public static double cToF(double tempC)
+    {
+        return tempC * (9.0/5.0) + 32.0;
+    }
+
+    public static double fToC(double tempF)
+    {
+        return (tempF-32.0)*(5.0/9.0);
+    }
+
     public static int kilogramsToPounds(double kilograms)
     {
         return (int) (kilograms / Constants.KILOGRAMS_PER_POUND);

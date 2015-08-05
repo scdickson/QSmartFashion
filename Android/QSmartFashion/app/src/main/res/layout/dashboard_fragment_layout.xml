@@ -5,6 +5,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_weight="0.13"
+        android:id="@+id/dashboard_health_meter_layout"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:background="#89a647"
@@ -13,6 +14,7 @@
         <TextView
             android:text="You are Healthy."
             android:textColor="#000000"
+            android:id="@+id/dashboard_health_meter"
             android:textStyle="bold"
             android:textSize="30sp"
             android:layout_gravity="center_vertical"
@@ -49,9 +51,10 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
             <TextView
-                android:text="99 bpm"
+                android:text="--- bpm"
                 android:textColor="#000000"
                 android:textStyle="bold"
+                android:id="@+id/dashboard_heart_bpm"
                 android:textSize="30sp"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
@@ -62,10 +65,11 @@
                 android:layout_weight="1"
                 />
             <TextView
-                android:text="⬆"
+                android:text=""
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textSize="30sp"
+                android:id="@+id/dashboard_heart_trend"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -96,10 +100,11 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
             <TextView
-                android:text="98.3° F"
+                android:text="---° F"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textSize="30sp"
+                android:id="@+id/dashboard_temp_F"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -109,10 +114,11 @@
                 android:layout_weight="1"
                 />
             <TextView
-                android:text="⬇"
+                android:text=""
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textSize="30sp"
+                android:id="@+id/dashboard_temp_trend"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
