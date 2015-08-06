@@ -9,10 +9,17 @@
 import UIKit
 import CoreBluetooth
 
+protocol BluetoothAdapterDelegate {
+    func didReceiveMeasurement(heartrate: Double, temperature: Double)
+    func deviceConnected(peripheral: CBPeripheral)
+    func deviceDisconnected(peripheral: CBPeripheral)
+}
+
 class BluetoothAdapter: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     static let sharedInstance = BluetoothAdapter()
-    private let discoverAllServices = false
+    private let discoverAllServices = true
     
+    var delegate: BluetoothAdapterDelegate?
     private var centralManager: CBCentralManager!
     private var peripheral: CBPeripheral?
     var discoveredPeripherals = [String : CBPeripheral]()
@@ -39,15 +46,15 @@ class BluetoothAdapter: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
             return
         }
         
-        let scanOptions: [String : AnyObject] = [
+//        let scanOptions: [String : AnyObject] = [
 //            CBCentralManagerScanOptionAllowDuplicatesKey : true,
-            CBCentralManagerOptionRestoreIdentifierKey: restorationIdentifier
-        ]
+//            CBCentralManagerOptionRestoreIdentifierKey: restorationIdentifier
+//        ]
         
         if discoverAllServices {
-            centralManager.scanForPeripheralsWithServices(nil, options: scanOptions)
+            centralManager.scanForPeripheralsWithServices(nil, options: nil)
         } else {
-            centralManager.scanForPeripheralsWithServices([UUID.Service], options: scanOptions)
+            centralManager.scanForPeripheralsWithServices([UUID.Service], options: nil)
         }
         print("scanning for peripherals")
     }
@@ -89,14 +96,17 @@ class BluetoothAdapter: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         default:
             print("unknown state")
         }
+        NSNotificationCenter.defaultCenter().postNotificationName(QualcommNotification.BTLE.PeripheralStateChanged, object: nil)
     }
     
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
         // @todo
         
-        print("found peripheral: \(peripheral.name!) - \(peripheral.identifier)")
-        
-        self.discoveredPeripherals[peripheral.identifier.UUIDString] = peripheral
+        if peripheral.name != nil {
+            print("found peripheral: \(peripheral.name!) - \(peripheral.identifier)")
+            
+            self.discoveredPeripherals[peripheral.identifier.UUIDString] = peripheral
+        }
         
         NSNotificationCenter.defaultCenter().postNotificationName(QualcommNotification.BTLE.FoundPeripheral, object: self)
         
@@ -117,10 +127,12 @@ class BluetoothAdapter: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         print("peripheral – \(peripheral.name!): connected")
         peripheral.delegate = self
         peripheral.discoverServices([UUID.Service])
+        delegate?.deviceConnected(peripheral)
     }
     
     func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
         print("peripheral – \(peripheral.name!): disconnected")
+        delegate?.deviceDisconnected(peripheral)
     }
     
     func centralManager(central: CBCentralManager, didFailToConnectPeripheral peripheral: CBPeripheral, error: NSError?) {
@@ -179,6 +191,7 @@ class BluetoothAdapter: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         }
     }
     
+    var dataBuffer = [UInt8]()
     func peripheral(peripheral: CBPeripheral, didUpdateValueForCharacteristic characteristic: CBCharacteristic, error: NSError?) {
         guard error == nil else {
             print("peripheral – \(peripheral.name!): did update value for characteristic error")
@@ -187,7 +200,39 @@ class BluetoothAdapter: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         
         if let characteristicValue = characteristic.value {
 //            characteristicValue.bytes
-            print(characteristicValue)
+            print("got \(characteristicValue.length) bytes of data:")
+            
+            let dataLength = characteristicValue.length
+            var byteArray = [UInt8](count: dataLength, repeatedValue: 0x0)
+            characteristicValue.getBytes(&byteArray, length: characteristicValue.length)
+            
+            for value in byteArray {
+                dataBuffer.append(value)
+            }
+            
+            while dataBuffer.count >= 7 {
+                let bytes = Array(dataBuffer[0..<7])
+                if let string = NSString(bytes: bytes, length: 7, encoding: NSASCIIStringEncoding) where string.length > 0 {
+                    let seperatorIndex = string.rangeOfString(":").location
+                    let heartrate = (string.substringToIndex(seperatorIndex) as NSString).doubleValue
+                    let temperature = (string.substringFromIndex(seperatorIndex + 1) as NSString).doubleValue
+                    delegate?.didReceiveMeasurement(heartrate, temperature: temperature)
+                }
+                dataBuffer.removeRange(0..<7)
+            }
+            
+//            var hexBits = "" as String
+//            for value in byteArray {
+//                hexBits += NSString(format:"%2X", value) as String
+//            }
+//            let hexBytes = hexBits.stringByReplacingOccurrencesOfString(" ", withString: "0", options: NSStringCompareOptions.CaseInsensitiveSearch)
+//            print("bytes: \(hexBytes)")
+
+//            for var i = 0; i < characteristicValue.length; i++ {
+//                let character: Character = Character(UnicodeScalar(bytes[i]))
+//                print("byte \(i): \(bytes.))")
+//            }
+//            print(characteristicValue)
 //            let value = NSString(data: characteristicValue, encoding: NSUTF8StringEncoding)?
 //            print("peripheral – \(peripheral.name!): got value: '\(value!)'")
         } else {

@@ -22,6 +22,10 @@ class QualcommNotification {
     }
     class BTLE {
         static let FoundPeripheral = "com.qualcomm.qsf.notification.btle.foundperipheral"
+        static let PeripheralStateChanged = "com.qualcomm.qsf.notification.btle.statechanged"
+    }
+    class Data {
+        static let NewMeasurement = "com.qualcomm.qsf.notification.data.newmeasurement"
     }
 }
 

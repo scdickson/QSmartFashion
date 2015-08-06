@@ -46,13 +46,19 @@ class DashboardViewController: UITableViewController, UIWebViewDelegate {
 
     var measurements = [SFDataMeasurement]()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadMetricsIfLoggedIn()
+        NSTimer.scheduledTimerWithTimeInterval(30.0, target: self, selector: "loadMetricsIfLoggedIn", userInfo: nil, repeats: true)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMetricsIfLoggedIn", name: QualcommNotification.Data.NewMeasurement, object: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func loadMetricsIfLoggedIn() {
         if PFUser.currentUser() != nil {
             loadMetricsFromParse()
         }
@@ -62,13 +68,13 @@ class DashboardViewController: UITableViewController, UIWebViewDelegate {
         measurements.removeAll()
         let query = SFDataMeasurement.query()!
         query.whereKey("user", equalTo: PFUser.currentUser()!)
-        query.orderByAscending("createdAt")
+        query.orderByDescending("createdAt")
         query.limit = 15
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) in
             if error == nil {
                 if let newMeasurements = objects as? [SFDataMeasurement] {
-                    self.measurements += newMeasurements
+                    self.measurements += newMeasurements.reverse()
                     self.updateInterface()
                 } else {
                     fatalError("measurements aren't the right object?")
@@ -247,15 +253,5 @@ class DashboardViewController: UITableViewController, UIWebViewDelegate {
             return .Healthy
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

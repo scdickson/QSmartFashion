@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CoreBluetooth
+import Parse
 
-class DevicesViewController: UITableViewController {
+class DevicesViewController: UITableViewController, BluetoothAdapterDelegate {
 
     let bluetoothAdapter = BluetoothAdapter.sharedInstance
     
@@ -18,6 +20,9 @@ class DevicesViewController: UITableViewController {
         // Do any additional setup after loading the view.
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshDevices", name: QualcommNotification.BTLE.FoundPeripheral, object: bluetoothAdapter)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshDevices", name: QualcommNotification.BTLE.PeripheralStateChanged, object: bluetoothAdapter)
+        
+        bluetoothAdapter.delegate = self
     }
     
     deinit {
@@ -79,6 +84,50 @@ class DevicesViewController: UITableViewController {
     
     func refreshDevices() {
         tableView.reloadData()
+    }
+    
+    // MARK: - BluetoothAdapterDelegate
+    var counter: Int = 10
+    func didReceiveMeasurement(heartrate: Double, temperature: Double) {
+        guard let user = PFUser.currentUser() else {
+            print("don't have user")
+            counter = 0
+            return
+        }
+        
+        if counter > 0 {
+            print("discarding \(counter--)th measurement")
+        } else {
+            print("got measurement: \(heartrate), \(temperature)")
+            let measurement = SFDataMeasurement(user: user)
+            measurement.heartrate = heartrate
+            measurement.temperature = temperature
+            measurement.saveInBackgroundWithBlock {
+                (succeeded: Bool, error: NSError?) in
+                if succeeded {
+                    print("saved btle measurement")
+                    NSNotificationCenter.defaultCenter().postNotificationName(QualcommNotification.Data.NewMeasurement, object: nil)
+                } else {
+                    print("unable to save btle measurement")
+                }
+            }
+        }
+    }
+    
+    func deviceConnected(peripheral: CBPeripheral) {
+        let alertController = UIAlertController(title: "Device", message: "Device was connected", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction) -> Void in
+            //
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func deviceDisconnected(peripheral: CBPeripheral) {
+        let alertController = UIAlertController(title: "Device", message: "Device was disconnected", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction) -> Void in
+            //
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
     /*
