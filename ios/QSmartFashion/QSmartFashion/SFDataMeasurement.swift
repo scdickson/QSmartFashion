@@ -11,16 +11,17 @@ import Parse
 
 class SFDataMeasurement: PFObject, PFSubclassing {
     
-    @NSManaged var user: SFUser
+    @NSManaged var user: PFUser
     @NSManaged var heartrate: Double
     @NSManaged var temperature: Double
-    @NSManaged var location: PFGeoPoint
+    @NSManaged var lat: Double
+    @NSManaged var lng: Double
     
     override init() {
         super.init()
     }
     
-    init(user: SFUser) {
+    init(user: PFUser) {
         super.init()
         self.user = user
     }

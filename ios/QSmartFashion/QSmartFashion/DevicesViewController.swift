@@ -17,6 +17,11 @@ class DevicesViewController: UITableViewController {
 
         // Do any additional setup after loading the view.
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshDevices", name: QualcommNotification.BTLE.FoundPeripheral, object: bluetoothAdapter)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,6 +62,23 @@ class DevicesViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let peripheralUUID = bluetoothAdapter.discoveredPeripheralUUIDs[indexPath.row]
+        if let peripheral = bluetoothAdapter.discoveredPeripherals[peripheralUUID] {
+            if peripheral.state == .Connected {
+                bluetoothAdapter.disconnectFromPeripheral(peripheral)
+            } else if peripheral.state == .Disconnected {
+                bluetoothAdapter.connectToPeripheral(peripheral)
+            }
+        }
+    }
+    
+    func refreshDevices() {
+        tableView.reloadData()
     }
 
     /*

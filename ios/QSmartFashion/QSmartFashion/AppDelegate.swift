@@ -20,6 +20,9 @@ class QualcommNotification {
         static let DidLogout = "com.qualcomm.notification.user.didlogout"
         static let DidLogin = "com.qualcomm.notification.user.didlogin"
     }
+    class BTLE {
+        static let FoundPeripheral = "com.qualcomm.qsf.notification.btle.foundperipheral"
+    }
 }
 
 class ViewControllerIdentifier {

@@ -14,6 +14,8 @@ class AuthenticationViewController: UIViewController {
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
     
+    @IBOutlet var logoImageView: UIImageView!
+    @IBOutlet var logoHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,6 +122,23 @@ class AuthenticationViewController: UIViewController {
 //                dataMeasurement.save()
 //                emergencyContact.save()
             }
+        }
+    }
+    
+    @IBAction func editingDidBegin() {
+        logoHeightConstraint.constant = 0
+    }
+    
+    @IBAction func editingDidEnd() {
+        logoHeightConstraint.constant = 166
+    }
+    
+    @IBAction func dissmissKeyboard() {
+        if usernameField.isFirstResponder() {
+            usernameField.resignFirstResponder()
+        }
+        if passwordField.isFirstResponder() {
+            passwordField.resignFirstResponder()
         }
     }
     

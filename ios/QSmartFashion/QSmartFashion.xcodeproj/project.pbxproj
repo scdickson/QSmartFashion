@@ -11,16 +11,16 @@
 		CD1595FC1B72AB9A00AE29FA /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1595FB1B72AB9A00AE29FA /* CoreBluetooth.framework */; };
 		CD1595FE1B72AFEB00AE29FA /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1595FD1B72AFEB00AE29FA /* DevicesViewController.swift */; };
 		CD1962F51B7040EB001F5DE9 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1962F41B7040EB001F5DE9 /* UnitConverter.swift */; };
-		CD21A0A31B716F7B00201E8D /* amcharts.js in Resources */ = {isa = PBXBuildFile; fileRef = CD21A09E1B716F7B00201E8D /* amcharts.js */; };
-		CD21A0A41B716F7B00201E8D /* cv.html in Resources */ = {isa = PBXBuildFile; fileRef = CD21A09F1B716F7B00201E8D /* cv.html */; };
-		CD21A0A61B716F7B00201E8D /* light.js in Resources */ = {isa = PBXBuildFile; fileRef = CD21A0A11B716F7B00201E8D /* light.js */; };
-		CD21A0A71B716F7B00201E8D /* serial.js in Resources */ = {isa = PBXBuildFile; fileRef = CD21A0A21B716F7B00201E8D /* serial.js */; };
 		CD9837571B6ED13400E97208 /* DrawerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9837561B6ED13400E97208 /* DrawerTableViewController.swift */; };
 		CD98375D1B6EE63100E97208 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD98375C1B6EE63100E97208 /* ContactsTableViewController.swift */; };
 		CD98375F1B6EE90000E97208 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD98375E1B6EE90000E97208 /* ContactsUI.framework */; };
 		CD9837621B6EF3D300E97208 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9837611B6EF3D300E97208 /* ContactTableViewCell.swift */; };
 		CD9837651B6F04B600E97208 /* ContactCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9837641B6F04B600E97208 /* ContactCacheManager.swift */; };
 		CDA8FF161B72F6F1009742F5 /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA8FF151B72F6F1009742F5 /* DeviceTableViewCell.swift */; };
+		CDA8FF181B730447009742F5 /* SimulateReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA8FF171B730447009742F5 /* SimulateReadingViewController.swift */; };
+		CDA8FF221B73CBFB009742F5 /* Chart.js in Resources */ = {isa = PBXBuildFile; fileRef = CDA8FF1F1B73CBFB009742F5 /* Chart.js */; };
+		CDA8FF231B73CBFB009742F5 /* Chart.min.js in Resources */ = {isa = PBXBuildFile; fileRef = CDA8FF201B73CBFB009742F5 /* Chart.min.js */; };
+		CDA8FF241B73CBFB009742F5 /* cv.html in Resources */ = {isa = PBXBuildFile; fileRef = CDA8FF211B73CBFB009742F5 /* cv.html */; };
 		CDC265E81B65A3840083A8A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E71B65A3840083A8A9 /* AppDelegate.swift */; };
 		CDC265EA1B65A3840083A8A9 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */; };
 		CDC265ED1B65A3840083A8A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC265EB1B65A3840083A8A9 /* Main.storyboard */; };
@@ -65,10 +65,6 @@
 		CD1595FB1B72AB9A00AE29FA /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		CD1595FD1B72AFEB00AE29FA /* DevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
 		CD1962F41B7040EB001F5DE9 /* UnitConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
-		CD21A09E1B716F7B00201E8D /* amcharts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = amcharts.js; path = ../../../android/QSmartFashion/app/src/main/assets/amcharts.js; sourceTree = "<group>"; };
-		CD21A09F1B716F7B00201E8D /* cv.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = cv.html; path = ../../../android/QSmartFashion/app/src/main/assets/cv.html; sourceTree = "<group>"; };
-		CD21A0A11B716F7B00201E8D /* light.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = light.js; path = ../../../android/QSmartFashion/app/src/main/assets/light.js; sourceTree = "<group>"; };
-		CD21A0A21B716F7B00201E8D /* serial.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = serial.js; path = ../../../android/QSmartFashion/app/src/main/assets/serial.js; sourceTree = "<group>"; };
 		CD9837561B6ED13400E97208 /* DrawerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerTableViewController.swift; sourceTree = "<group>"; };
 		CD9837581B6EE5F100E97208 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		CD9837591B6EE5F100E97208 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
@@ -77,6 +73,10 @@
 		CD9837611B6EF3D300E97208 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		CD9837641B6F04B600E97208 /* ContactCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCacheManager.swift; sourceTree = "<group>"; };
 		CDA8FF151B72F6F1009742F5 /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
+		CDA8FF171B730447009742F5 /* SimulateReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulateReadingViewController.swift; sourceTree = "<group>"; };
+		CDA8FF1F1B73CBFB009742F5 /* Chart.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Chart.js; sourceTree = "<group>"; };
+		CDA8FF201B73CBFB009742F5 /* Chart.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Chart.min.js; sourceTree = "<group>"; };
+		CDA8FF211B73CBFB009742F5 /* cv.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = cv.html; sourceTree = "<group>"; };
 		CDC265E41B65A3840083A8A9 /* QSmartFashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSmartFashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC265E71B65A3840083A8A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
@@ -147,10 +147,9 @@
 		CD21A09D1B716F6500201E8D /* Web Assets */ = {
 			isa = PBXGroup;
 			children = (
-				CD21A09E1B716F7B00201E8D /* amcharts.js */,
-				CD21A09F1B716F7B00201E8D /* cv.html */,
-				CD21A0A11B716F7B00201E8D /* light.js */,
-				CD21A0A21B716F7B00201E8D /* serial.js */,
+				CDA8FF1F1B73CBFB009742F5 /* Chart.js */,
+				CDA8FF201B73CBFB009742F5 /* Chart.min.js */,
+				CDA8FF211B73CBFB009742F5 /* cv.html */,
 			);
 			name = "Web Assets";
 			sourceTree = "<group>";
@@ -255,6 +254,7 @@
 				CDE4280A1B70311D00FC2E5C /* BirthdatePickerViewController.swift */,
 				CD02FE611B717B8C000E5E21 /* DashboardViewController.swift */,
 				CD1595FD1B72AFEB00AE29FA /* DevicesViewController.swift */,
+				CDA8FF171B730447009742F5 /* SimulateReadingViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -385,13 +385,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDD88CE61B6ED0E000BF4AA5 /* Orphan.storyboard in Resources */,
-				CD21A0A71B716F7B00201E8D /* serial.js in Resources */,
 				CDC265F21B65A3840083A8A9 /* LaunchScreen.storyboard in Resources */,
+				CDA8FF221B73CBFB009742F5 /* Chart.js in Resources */,
 				CDC265EF1B65A3840083A8A9 /* Assets.xcassets in Resources */,
-				CD21A0A61B716F7B00201E8D /* light.js in Resources */,
-				CD21A0A41B716F7B00201E8D /* cv.html in Resources */,
 				CDC265ED1B65A3840083A8A9 /* Main.storyboard in Resources */,
-				CD21A0A31B716F7B00201E8D /* amcharts.js in Resources */,
+				CDA8FF241B73CBFB009742F5 /* cv.html in Resources */,
+				CDA8FF231B73CBFB009742F5 /* Chart.min.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +478,7 @@
 				CDF243DD1B71C2F3008BF5A5 /* BluetoothAdapter.swift in Sources */,
 				CDC2661B1B65B26E0083A8A9 /* SFEmergencyContact.swift in Sources */,
 				CDE428091B70297000FC2E5C /* ProfileViewController.swift in Sources */,
+				CDA8FF181B730447009742F5 /* SimulateReadingViewController.swift in Sources */,
 				CDC266191B65B0F80083A8A9 /* SFDataMeasurement.swift in Sources */,
 				CDC2661E1B65D12A0083A8A9 /* MainViewController.swift in Sources */,
 				CD1595FE1B72AFEB00AE29FA /* DevicesViewController.swift in Sources */,
