@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A235d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A244d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -210,6 +210,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Emergency Contacts" id="kc4-eS-bu2">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="34s-vj-Qs6">
+                            <color key="tintColor" red="0.066666666669999999" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="showPicker:" destination="Ez9-C9-UuI" id="ezD-ou-zYb"/>
                             </connections>
@@ -427,6 +428,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="RQj-Bh-kzC">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Nc2-ZI-1QW">
+                            <color key="tintColor" red="0.066666666669999999" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="dismissKeyboard" destination="2eu-4G-B9p" id="NrN-qB-eMG"/>
                             </connections>
@@ -554,22 +556,61 @@
         <!--Your Devices-->
         <scene sceneID="JN7-El-OLN">
             <objects>
-                <tableViewController id="Qg1-nb-885" sceneMemberID="viewController">
+                <tableViewController id="Qg1-nb-885" customClass="DevicesViewController" customModule="QSmartFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dA0-6V-OCS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bEs-PJ-8bo">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="com.qualcomm.qsf.tableviewcell.device" id="bEs-PJ-8bo" customClass="DeviceTableViewCell" customModule="QSmartFashion" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bEs-PJ-8bo" id="6KM-f3-BmY">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4S-8h-ryN">
+                                            <rect key="frame" x="8" y="8" width="30" height="18"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.066666666666666666" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0D97CDCC-2922-D3FB-2DC0-9B69CF9A1021" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XW0-ZQ-ImH">
+                                            <rect key="frame" x="9" y="24" width="218" height="11"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2g-cK-BnW">
+                                            <rect key="frame" x="253" y="7" width="59" height="30"/>
+                                            <animations/>
+                                            <state key="normal" title="Connect">
+                                                <color key="titleColor" red="0.066666666669999999" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="deviceAction:" destination="bEs-PJ-8bo" eventType="touchUpInside" id="v4O-8z-gU6"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="topMargin" secondItem="a4S-8h-ryN" secondAttribute="top" id="AEM-Ty-Ky9"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="r2g-cK-BnW" secondAttribute="trailing" id="TBm-Lm-2DU"/>
+                                        <constraint firstItem="r2g-cK-BnW" firstAttribute="centerY" secondItem="6KM-f3-BmY" secondAttribute="centerY" id="h6r-A3-9Ed"/>
+                                        <constraint firstItem="XW0-ZQ-ImH" firstAttribute="leading" secondItem="a4S-8h-ryN" secondAttribute="leading" constant="1" id="jlG-8T-7Uz"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="a4S-8h-ryN" secondAttribute="leading" id="pXi-uw-pmA"/>
+                                        <constraint firstItem="XW0-ZQ-ImH" firstAttribute="top" secondItem="a4S-8h-ryN" secondAttribute="bottom" constant="-2" id="vSN-uO-8C9"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <outlet property="actionButton" destination="r2g-cK-BnW" id="ABk-qN-oCE"/>
+                                    <outlet property="deviceIdentifierLabel" destination="XW0-ZQ-ImH" id="Kr8-N4-dwa"/>
+                                    <outlet property="deviceNameLabel" destination="a4S-8h-ryN" id="p8y-4z-vwE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -578,7 +619,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Devices" id="tCI-so-Et2">
-                        <barButtonItem key="rightBarButtonItem" title="Discover" id="rot-gW-spm"/>
+                        <barButtonItem key="rightBarButtonItem" title="Discover" id="rot-gW-spm">
+                            <color key="tintColor" red="0.066666666669999999" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>

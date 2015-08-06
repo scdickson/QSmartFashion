@@ -33,6 +33,7 @@ class ViewControllerIdentifier {
 
 class TableViewCellIdentifier {
     static let Contact = "com.qualcomm.tableviewcell.contact"
+    static let Device = "com.qualcomm.qsf.tableviewcell.device"
 }
 
 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)

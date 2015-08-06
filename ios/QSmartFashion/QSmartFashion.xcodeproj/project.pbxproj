@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CD02FE621B717B8C000E5E21 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD02FE611B717B8C000E5E21 /* DashboardViewController.swift */; };
+		CD1595FC1B72AB9A00AE29FA /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1595FB1B72AB9A00AE29FA /* CoreBluetooth.framework */; };
+		CD1595FE1B72AFEB00AE29FA /* DevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1595FD1B72AFEB00AE29FA /* DevicesViewController.swift */; };
 		CD1962F51B7040EB001F5DE9 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1962F41B7040EB001F5DE9 /* UnitConverter.swift */; };
 		CD21A0A31B716F7B00201E8D /* amcharts.js in Resources */ = {isa = PBXBuildFile; fileRef = CD21A09E1B716F7B00201E8D /* amcharts.js */; };
 		CD21A0A41B716F7B00201E8D /* cv.html in Resources */ = {isa = PBXBuildFile; fileRef = CD21A09F1B716F7B00201E8D /* cv.html */; };
@@ -18,6 +20,7 @@
 		CD98375F1B6EE90000E97208 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD98375E1B6EE90000E97208 /* ContactsUI.framework */; };
 		CD9837621B6EF3D300E97208 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9837611B6EF3D300E97208 /* ContactTableViewCell.swift */; };
 		CD9837651B6F04B600E97208 /* ContactCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9837641B6F04B600E97208 /* ContactCacheManager.swift */; };
+		CDA8FF161B72F6F1009742F5 /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA8FF151B72F6F1009742F5 /* DeviceTableViewCell.swift */; };
 		CDC265E81B65A3840083A8A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E71B65A3840083A8A9 /* AppDelegate.swift */; };
 		CDC265EA1B65A3840083A8A9 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */; };
 		CDC265ED1B65A3840083A8A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDC265EB1B65A3840083A8A9 /* Main.storyboard */; };
@@ -34,6 +37,7 @@
 		CDD88CE61B6ED0E000BF4AA5 /* Orphan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD88CE51B6ED0E000BF4AA5 /* Orphan.storyboard */; };
 		CDE428091B70297000FC2E5C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE428081B70297000FC2E5C /* ProfileViewController.swift */; };
 		CDE4280B1B70311D00FC2E5C /* BirthdatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE4280A1B70311D00FC2E5C /* BirthdatePickerViewController.swift */; };
+		CDF243DD1B71C2F3008BF5A5 /* BluetoothAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF243DC1B71C2F3008BF5A5 /* BluetoothAdapter.swift */; };
 		F80920D97C248C5D1BC3249D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFF4E03C2048CAF355E0DDD4 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -58,6 +62,8 @@
 		2FC642EAA6BAB3F4F2189702 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7EA9DBBEF4FE33428020E288 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CD02FE611B717B8C000E5E21 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		CD1595FB1B72AB9A00AE29FA /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		CD1595FD1B72AFEB00AE29FA /* DevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesViewController.swift; sourceTree = "<group>"; };
 		CD1962F41B7040EB001F5DE9 /* UnitConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
 		CD21A09E1B716F7B00201E8D /* amcharts.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = amcharts.js; path = ../../../android/QSmartFashion/app/src/main/assets/amcharts.js; sourceTree = "<group>"; };
 		CD21A09F1B716F7B00201E8D /* cv.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = cv.html; path = ../../../android/QSmartFashion/app/src/main/assets/cv.html; sourceTree = "<group>"; };
@@ -70,6 +76,7 @@
 		CD98375E1B6EE90000E97208 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		CD9837611B6EF3D300E97208 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		CD9837641B6F04B600E97208 /* ContactCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCacheManager.swift; sourceTree = "<group>"; };
+		CDA8FF151B72F6F1009742F5 /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
 		CDC265E41B65A3840083A8A9 /* QSmartFashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSmartFashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC265E71B65A3840083A8A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDC265E91B65A3840083A8A9 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +100,7 @@
 		CDD88CE51B6ED0E000BF4AA5 /* Orphan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Orphan.storyboard; sourceTree = "<group>"; };
 		CDE428081B70297000FC2E5C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CDE4280A1B70311D00FC2E5C /* BirthdatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthdatePickerViewController.swift; sourceTree = "<group>"; };
+		CDF243DC1B71C2F3008BF5A5 /* BluetoothAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothAdapter.swift; sourceTree = "<group>"; };
 		CFF4E03C2048CAF355E0DDD4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1595FC1B72AB9A00AE29FA /* CoreBluetooth.framework in Frameworks */,
 				CD98375F1B6EE90000E97208 /* ContactsUI.framework in Frameworks */,
 				F80920D97C248C5D1BC3249D /* Pods.framework in Frameworks */,
 			);
@@ -126,6 +135,7 @@
 		C7205F832F1BB319A61019B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD1595FB1B72AB9A00AE29FA /* CoreBluetooth.framework */,
 				CD98375E1B6EE90000E97208 /* ContactsUI.framework */,
 				CD9837581B6EE5F100E97208 /* AddressBook.framework */,
 				CD9837591B6EE5F100E97208 /* AddressBookUI.framework */,
@@ -149,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				CD9837611B6EF3D300E97208 /* ContactTableViewCell.swift */,
+				CDA8FF151B72F6F1009742F5 /* DeviceTableViewCell.swift */,
 			);
 			name = "Table View Cells";
 			sourceTree = "<group>";
@@ -158,6 +169,7 @@
 			children = (
 				CD9837641B6F04B600E97208 /* ContactCacheManager.swift */,
 				CD1962F41B7040EB001F5DE9 /* UnitConverter.swift */,
+				CDF243DC1B71C2F3008BF5A5 /* BluetoothAdapter.swift */,
 			);
 			name = Domain;
 			sourceTree = "<group>";
@@ -242,6 +254,7 @@
 				CDC2661F1B65D3120083A8A9 /* SettingsViewController.swift */,
 				CDE4280A1B70311D00FC2E5C /* BirthdatePickerViewController.swift */,
 				CD02FE611B717B8C000E5E21 /* DashboardViewController.swift */,
+				CD1595FD1B72AFEB00AE29FA /* DevicesViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -462,10 +475,13 @@
 				CDC266201B65D3120083A8A9 /* SettingsViewController.swift in Sources */,
 				CD9837651B6F04B600E97208 /* ContactCacheManager.swift in Sources */,
 				CDC265E81B65A3840083A8A9 /* AppDelegate.swift in Sources */,
+				CDA8FF161B72F6F1009742F5 /* DeviceTableViewCell.swift in Sources */,
+				CDF243DD1B71C2F3008BF5A5 /* BluetoothAdapter.swift in Sources */,
 				CDC2661B1B65B26E0083A8A9 /* SFEmergencyContact.swift in Sources */,
 				CDE428091B70297000FC2E5C /* ProfileViewController.swift in Sources */,
 				CDC266191B65B0F80083A8A9 /* SFDataMeasurement.swift in Sources */,
 				CDC2661E1B65D12A0083A8A9 /* MainViewController.swift in Sources */,
+				CD1595FE1B72AFEB00AE29FA /* DevicesViewController.swift in Sources */,
 				CD02FE621B717B8C000E5E21 /* DashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
