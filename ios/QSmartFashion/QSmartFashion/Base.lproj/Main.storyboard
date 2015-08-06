@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A235d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e8U-dO-WkD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="15A244d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="e8U-dO-WkD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -135,8 +135,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You are Healthy." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpa-VW-QQC">
-                                                    <rect key="frame" x="8" y="13.5" width="125" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are Healthy." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpa-VW-QQC">
+                                                    <rect key="frame" x="8" y="13.5" width="123.5" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -153,7 +153,6 @@
                                             <animations/>
                                             <color key="backgroundColor" red="0.53333333333333333" green="0.6470588235294118" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="P7r-bE-wrK" firstAttribute="centerY" secondItem="3Sj-hb-2O8" secondAttribute="centerY" id="6gj-QT-Eow"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="P7r-bE-wrK" secondAttribute="bottom" constant="-5.5" id="ete-cs-Rfk"/>
                                                 <constraint firstItem="bpa-VW-QQC" firstAttribute="centerY" secondItem="3Sj-hb-2O8" secondAttribute="centerY" id="kcz-9K-QJC"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="bpa-VW-QQC" secondAttribute="leading" id="oHp-JL-tlx"/>
@@ -195,7 +194,6 @@
                                             <color key="backgroundColor" red="0.90980392156862744" green="0.23137254901960785" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="fPg-Zk-SKt" firstAttribute="top" secondItem="w1O-L5-Hco" secondAttribute="top" id="0Pm-3f-KGl"/>
-                                                <constraint firstItem="fPg-Zk-SKt" firstAttribute="centerX" secondItem="9Qr-tX-0VG" secondAttribute="centerX" id="Ceg-j1-Cs7"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="DHK-Yg-Rp3" secondAttribute="bottom" constant="-9.5" id="Dlu-pE-acj"/>
                                                 <constraint firstItem="DHK-Yg-Rp3" firstAttribute="leading" secondItem="9Qr-tX-0VG" secondAttribute="leadingMargin" constant="-8" id="E0d-NK-KA2"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="DHK-Yg-Rp3" secondAttribute="trailing" constant="-8" id="JeV-jq-tTj"/>
@@ -206,11 +204,6 @@
                                                 <constraint firstItem="fPg-Zk-SKt" firstAttribute="height" secondItem="w1O-L5-Hco" secondAttribute="height" id="xES-5J-Noi"/>
                                                 <constraint firstItem="fPg-Zk-SKt" firstAttribute="leading" secondItem="w1O-L5-Hco" secondAttribute="trailing" constant="8" id="y2s-s7-euW"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="Ceg-j1-Cs7"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
@@ -221,8 +214,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="255.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sGo-i9-7ZR">
-                                                    <rect key="frame" x="0.0" y="55" width="320" height="128"/>
+                                                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGo-i9-7ZR">
+                                                    <rect key="frame" x="0.0" y="55" width="320" height="200"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </webView>
@@ -239,8 +232,8 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="98.3° F" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fic-r5-uYD">
-                                                    <rect key="frame" x="62" y="8" width="250" height="41"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="98.3° F" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fic-r5-uYD">
+                                                    <rect key="frame" x="62" y="8" width="94" height="41"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
