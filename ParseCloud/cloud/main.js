@@ -76,6 +76,22 @@ Parse.Cloud.afterSave("DataMeasurement", function(request, response)
 
 									if(alertSOS)
 									{
+										var SOSLogObject = Parse.Object.extend("SOSLog");
+										var SOSLog = new SOSLogObject();
+										SOSLog.set("user", request.object.get('user'));
+										SOSLog.set("heartrate", heartrate);
+										SOSLog.set("temperature", temp);
+										SOSLog.set("HRLocation", formattedAddress);
+										SOSLog.save(null, {
+          									success: function(SOSLog) 
+									          {
+									        },
+									          error: function(SOSLog, error) 
+									          {
+									          }
+									      });
+
+
 										var SOSMessage = "Your friend " + user.get('name') + " is in need of emergency assistance. "
 										if(user.get("sex") == "F")
 										{
@@ -168,7 +184,7 @@ Parse.Cloud.afterSave("DataMeasurement", function(request, response)
 
 			if(alertSOS)
 			{
-				var SOSMessage = "Your friend " + user.get('name') + "is in need of emergency assistance. Please hurry!"
+				var SOSMessage = "Your friend " + user.get('name') + " is in need of emergency assistance. Please hurry!"
 
 				var SOSContact = Parse.Object.extend("EmergencyContact");
 				var sos_contact_query = new Parse.Query(SOSContact);

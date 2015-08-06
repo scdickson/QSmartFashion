@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>QSmartFashion Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="https://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+    <script src="js/Chart.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      Parse.initialize("Mk2JtBAAnX2YvoePfGz9OUSgCmgIbjBmg1ZpKuko", "1xMMREFaMaKxTQ3PwGf7AIpK6RiaaKNuv6abqnA9");
+      var get = window.location.search.substring(1);
+      var email = get.split("=")[1].replace("%40", "@");
+      var query = new Parse.Query(Parse.User);
+      query.equalTo("email", email);
+      query.find({
+        success: function(results) 
+        {
+          if(results.length <= 0)
+          {
+            location.href = "index.html?err=nf";
+          }
+
+          for (var i = 0; i < results.length; i++) 
+          {
+            var object = results[i];
+            if(object.get("dataPublic") != true)
+            {
+              location.href = "index.html?err=np"
+            }
+            else
+            {
+              var date = object.get("birthdate");
+              document.getElementById('dashboard_title').innerHTML = object.get("name") + "'s Dashboard";
+              document.getElementById('profileinfo').innerHTML = "<a>Email: " + object.get("email") + "<br/>Height: " + object.get("height") + " m<br/>Weight: " + object.get("weight") + " kg<br/>Birthdate: " + date.getMonth() + '/' + date.getDay() + '/' + date.getYear() + "</br></a>";
+
+              var labels = [];
+              var temps = [];
+              var hrs = [];
+        
+              var DataMeasurement = Parse.Object.extend("DataMeasurement");
+              var dmQuery = new Parse.Query(DataMeasurement);
+              dmQuery.equalTo("user", object);
+              dmQuery.find({
+                success: function(measurements) 
+                {
+                  console.log(measurements.length + " results");
+                  for (var i = 0; i < measurements.length; i++) 
+                  {
+                      var measurement = measurements[i];
+                      var date = measurement.createdAt;
+                      labels[i] = date.getMonth() + '/' + date.getDay() + '  ' + date.getHours() + ':' + date.getMinutes();
+                      temps[i] = measurement.get("temperature");
+                      hrs[i] = measurement.get("heartrate");
+
+                  }
+
+                  var tempData = {
+                  labels : labels,
+                  datasets : [
+                  {
+                      fillColor : "rgba(17,178,178,0.4)",
+                      strokeColor : "#11b2b2",
+                      pointColor : "#fff",
+                      pointStrokeColor : "#11b2b2",
+                      data : temps
+                    }
+                  ]
+                };
+                var temp = document.getElementById('tempchart').getContext('2d');
+                new Chart(temp).Line(tempData);
+
+                var hrData = {
+                  labels : labels,
+                  datasets : [
+                  {
+                      fillColor : "rgba(233,59,70,0.4)",
+                      strokeColor : "#E2AB47",
+                      pointColor : "#fff",
+                      pointStrokeColor : "#E2AB47",
+                      data : hrs
+                    }
+                  ]
+                };
+                var hr = document.getElementById('hrchart').getContext('2d');
+                new Chart(hr).Line(hrData);
+
+                var SOSLogString = '';
+                var SOSLog = Parse.Object.extend("SOSLog");
+                var sosLogQuery = new Parse.Query(SOSLog);
+                sosLogQuery.equalTo("user", object);
+                sosLogQuery.find({
+                  success: function(soslogs) 
+                  {
+                    for (var i = 0; i < soslogs.length; i++) 
+                    {
+                      var soslog = soslogs[i];
+                      var date = soslog.createdAt;
+                      SOSLogString += "<tr><td>" + (i+1) + "</td><td>" + date.getMonth() + '/' + date.getDay() + '  ' + date.getHours() + ':' + date.getMinutes() + ":" + date.getSeconds() + "</td><td>" + soslog.get("HRLocation") + "</td><td>" + soslog.get("heartrate") + "</td><td>" + soslog.get("temperature") + "</td></tr>";
+                    }
+
+                    document.getElementById('soslogbody').innerHTML = SOSLogString;
+                  }
+                });
+
+                var ContactString = "<li class=\"active\"><a>Emergency Contacts<span class=\"sr-only\">(current)</span></a></li>";
+                var Contact = Parse.Object.extend("EmergencyContact");
+                var contactQuery = new Parse.Query(Contact);
+                contactQuery.equalTo("user", object);
+                contactQuery.find({
+                  success: function(contacts) 
+                  {
+                    for (var i = 0; i < contacts.length; i++) 
+                    {
+                      var contact = contacts[i];
+                      if(contact.get("photo") != null)
+                      {
+                          ContactString += "<li><a><img src=\"" + contact.get("photo").url()  + "\"height=\"40\" width=\"40\"/>&nbsp;&nbsp;" + contact.get("name") + "&nbsp;&nbsp;" + contact.get("phoneNumber") + "</a></li>";
+                      }
+                      else
+                      {
+                          ContactString += "<li><a><img src=\"images/heart_logo.png\" height=\"40\" width=\"40\"/>&nbsp;&nbsp;" + contact.get("name") + "&nbsp;&nbsp;" + contact.get("phoneNumber") + "</a></li>";
+                      }
+                      
+                    }
+
+                    document.getElementById('emcontacts').innerHTML = ContactString;
+                  }
+                });
+
+                },
+                error: function(error) {alert(error.message)}
+              });
+            }
+          }
+
+          },
+            error: function(error) {alert(error.message)}
+        });
+
+    </script>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand"><img src="images/heart_logo.png" width="50" height="50"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" method="get" action="dashboard.html">
+            <input type="text" name="email" class="form-control">
+            <button type="submit" class="form-control">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a>Profile<span class="sr-only">(current)</span></a></li>
+            <li id="profileinfo"><a>Email: <br/>Height: <br/>Weight: <br/>Birthdate: </br></a></li>
+          </ul>
+
+          <ul class="nav nav-sidebar" id="emcontacts">
+            
+            
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header" id="dashboard_title">Dashboard</h1>
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <table border="0px">
+              <tr>
+                <td><label for = "hrchart">Heart Rate<br/><canvas id="hrchart" width="700px" height="350px"></canvas></label></td>
+                <td>&nbsp;&nbsp;</td>
+                <td><label for = "hrchart">Temperature<br/><canvas id="tempchart" width="700px" height="350px"></canvas></label></td>
+              </tr>
+              </table>
+            </div>
+          </div>
+
+          <h2 class="sub-header">SOS Log</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Time</th>
+                  <th>Location</th>
+                  <th>Heart Rate</th>
+                  <th>Temperature</th>
+                </tr>
+              </thead>
+              <tbody id="soslogbody">
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

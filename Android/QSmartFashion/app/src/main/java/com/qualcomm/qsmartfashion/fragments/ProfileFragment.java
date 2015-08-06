@@ -16,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -46,6 +47,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener
     View rootView;
     EditText name, weight, height_ft, height_in, birthdate;
     Spinner sex;
+    CheckBox publicData;
 
     int mYear, mMonth, mDay;
 
@@ -126,6 +128,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener
         height_ft = (EditText) rootView.findViewById(R.id.settings_height_ft);
         height_in = (EditText) rootView.findViewById(R.id.settings_height_in);
         sex = (Spinner) rootView.findViewById(R.id.settings_sex);
+        publicData = (CheckBox) rootView.findViewById(R.id.settings_public_data);
         birthdate = (EditText) rootView.findViewById(R.id.settings_birthdate);
         birthdate.setOnClickListener(this);
 
@@ -155,6 +158,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener
                         break;
                 }
             }
+            publicData.setChecked(currentUser.getBoolean("dataPublic"));
             DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getActivity());
             Date user_birthdate = currentUser.getDate("birthdate");
             birthdate.setText(dateFormat.format(user_birthdate));
@@ -198,6 +202,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener
         {
             e.printStackTrace();
         }
+
+        user.put("dataPublic", publicData.isChecked());
 
         switch(sex.getSelectedItemPosition())
         {
@@ -258,6 +264,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener
         user.put("height", UnitConverter.feetInchesToCentimeters(height_imperial));
 
         user.put("weight", UnitConverter.poundsToKilograms(Integer.parseInt(weight.getText().toString())));
+        user.put("dataPublic", publicData.isChecked());
 
         user.signUpInBackground(new SignUpCallback() {
             public void done(ParseException e) {

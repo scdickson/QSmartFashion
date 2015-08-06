@@ -284,7 +284,7 @@ public class DashboardFragment extends Fragment
                         continue;
                     }
 
-                    if (diffHours < 1) {
+                    if (diffHours < 2) {
                         sb.append("\"" + diffMins + " m\"");
                     } else {
                         sb.append("\"" + diffHours + " h\"");
@@ -334,7 +334,7 @@ public class DashboardFragment extends Fragment
                         continue;
                     }
 
-                    if (diffHours < 1) {
+                    if (diffHours < 2) {
                         sb.append("\"" + diffMins + " m\"");
                     } else {
                         sb.append("\"" + diffHours + " h\"");
