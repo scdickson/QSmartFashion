@@ -12,6 +12,7 @@ import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -29,6 +30,7 @@ import com.qualcomm.qsmartfashion.Constants;
 import com.qualcomm.qsmartfashion.MetricsActivity;
 import com.qualcomm.qsmartfashion.R;
 import com.qualcomm.qsmartfashion.adapters.DeviceListAdapter;
+import com.qualcomm.qsmartfashion.utils.QSFLocationListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -109,9 +111,7 @@ public class DeviceFragment extends Fragment
         return false;
     }
 
-    public DeviceFragment()
-    {
-    }
+    public DeviceFragment(){}
 
     private BluetoothAdapter.LeScanCallback mLeScanCallback =
             new BluetoothAdapter.LeScanCallback() {
@@ -133,7 +133,7 @@ public class DeviceFragment extends Fragment
                 }
             };
 
-    private BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
+    /*private BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
         @Override
         public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
             Log.d("qsf", "Connect OK");
@@ -177,7 +177,29 @@ public class DeviceFragment extends Fragment
 
         public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic)
         {
-            Log.d("qsf", characteristic.getStringValue(0));
+            //Log.d("qsf", characteristic.getStringValue(0));
+            if(characteristic.getValue().length <= 8) {
+                String tmp = "";
+                for (int i = 0; i < characteristic.getValue().length; i++) {
+                    if (characteristic.getValue()[i] > 32) {
+                        tmp += String.valueOf((char) characteristic.getValue()[i]);
+                    }
+                }
+
+                try
+                {
+                    String data[] = tmp.split(":");
+                    Log.d("qsf", "hr is " + data[0] + ", tmp is " + data[1]);
+                    if (data.length == 2) {
+                        MetricsActivity.sampled_heartrate = Double.parseDouble(data[0]);
+                        MetricsActivity.sampled_temperature = Double.parseDouble(data[1]);
+                    }
+                }
+                catch(Exception e){}
+            }
+
+
+
         }
 
         @Override
@@ -205,7 +227,7 @@ public class DeviceFragment extends Fragment
                     + status + ")");
             super.onDescriptorWrite(gatt, arg0, status);
         }
-    };
+    };*/
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState)
     {
@@ -223,8 +245,9 @@ public class DeviceFragment extends Fragment
                     btAdapter.stopLeScan(mLeScanCallback);
                 }
                 Object devicesArray[] = DeviceFragment.devices.keySet().toArray();
-                BluetoothDevice selected = (BluetoothDevice) devicesArray[position];
-                selected.connectGatt(getActivity().getApplicationContext(), true, mGattCallback);
+                MetricsActivity.chosen_one = (BluetoothDevice) devicesArray[position];
+                //BluetoothDevice selected = (BluetoothDevice) devicesArray[position];
+                //selected.connectGatt(getActivity().getApplicationContext(), true, mGattCallback);
             }
         });
         deviceList.setAdapter(adapter);

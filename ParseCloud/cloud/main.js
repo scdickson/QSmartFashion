@@ -2,7 +2,7 @@ Parse.Cloud.afterSave("DataMeasurement", function(request, response)
 {
 	console.log("--------------------------------------------------------------");
 	var twilio = require("twilio");
-	twilio.initialize("AC9b6556e0210c805213a6b6a22547f14d","f73a18e62798d9b69aea7c00aa0dfd11");
+	twilio.initialize(APP_KEY,SECRET_KEY);
 
 
 	var heartrate = request.object.get("heartrate");
@@ -23,7 +23,7 @@ Parse.Cloud.afterSave("DataMeasurement", function(request, response)
 	                url: 'https://maps.googleapis.com/maps/api/geocode/json',
 	                params: {
 	                    latlng : lat + "," + lng,
-	                    key: "AIzaSyCazMxcpH4l4HSwB_ofk8Nnm9aLTnAVyQI"
+	                    key: "GMAPS_KEY"
 	                },
 	                success: function(httpResponse) 
 	                {

@@ -53,8 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var containerViewController: ContainerViewController!
     
     class ParseAPICredentials {
-        static let ApplicationId = "Mk2JtBAAnX2YvoePfGz9OUSgCmgIbjBmg1ZpKuko"
-        static let ClientKey = "l2yTXivnPawT72nueLBCmQQAY4cdkwpdjmXNBccw"
+        static let ApplicationId = APP_KEY
+        static let ClientKey = CLIENT_KEY
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

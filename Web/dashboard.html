@@ -32,7 +32,7 @@
 
   <body>
     <script type="text/javascript">
-      Parse.initialize("Mk2JtBAAnX2YvoePfGz9OUSgCmgIbjBmg1ZpKuko", "1xMMREFaMaKxTQ3PwGf7AIpK6RiaaKNuv6abqnA9");
+      Parse.initialize(APP_KEY, SECRET_KEY);
       var get = window.location.search.substring(1);
       var email = get.split("=")[1].replace("%40", "@");
       var query = new Parse.Query(Parse.User);
@@ -56,7 +56,7 @@
             {
               var date = object.get("birthdate");
               document.getElementById('dashboard_title').innerHTML = object.get("name") + "'s Dashboard";
-              document.getElementById('profileinfo').innerHTML = "<a>Email: " + object.get("email") + "<br/>Height: " + object.get("height") + " m<br/>Weight: " + object.get("weight") + " kg<br/>Birthdate: " + date.getMonth() + '/' + date.getDay() + '/' + date.getYear() + "</br></a>";
+              document.getElementById('profileinfo').innerHTML = "<a>Email: " + object.get("email") + "<br/>Height: " + object.get("height") + " cm<br/>Weight: " + object.get("weight") + " kg<br/>Birthdate: " + date.getMonth() + '/' + date.getDay() + '/' + date.getYear() + "</br></a>";
 
               var labels = [];
               var temps = [];
@@ -203,9 +203,9 @@
             <div class="col-xs-6 col-sm-3 placeholder">
               <table border="0px">
               <tr>
-                <td><label for = "hrchart">Heart Rate<br/><canvas id="hrchart" width="700px" height="350px"></canvas></label></td>
+                <td><label for = "hrchart">Heart Rate<br/><canvas id="hrchart" width="500px" height="350px"></canvas></label></td>
                 <td>&nbsp;&nbsp;</td>
-                <td><label for = "hrchart">Temperature<br/><canvas id="tempchart" width="700px" height="350px"></canvas></label></td>
+                <td><label for = "hrchart">Temperature<br/><canvas id="tempchart" width="500px" height="350px"></canvas></label></td>
               </tr>
               </table>
             </div>

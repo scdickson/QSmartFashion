@@ -2,6 +2,13 @@ package com.qualcomm.qsmartfashion.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.bluetooth.BluetoothGatt;
+import android.bluetooth.BluetoothGattCallback;
+import android.bluetooth.BluetoothGattCharacteristic;
+import android.bluetooth.BluetoothGattDescriptor;
+import android.bluetooth.BluetoothGattService;
+import android.bluetooth.BluetoothProfile;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -35,6 +42,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.qualcomm.qsmartfashion.Constants;
 import com.qualcomm.qsmartfashion.MetricsActivity;
 import com.qualcomm.qsmartfashion.R;
 import com.qualcomm.qsmartfashion.utils.QSFLocationListener;
@@ -50,9 +58,12 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by sdickson on 8/3/15.
@@ -60,6 +71,7 @@ import java.util.List;
 public class DashboardFragment extends Fragment
 {
     private static final String ARG_SECTION_NUMBER = "DashboardFragment";
+    public static final String locationProvider = LocationManager.NETWORK_PROVIDER;
     public enum HEALTH_STATUS {HEALTHY, AT_RISK, UNHEALTHY};
 
     WebView heartHistory, tempHistory;
@@ -75,20 +87,23 @@ public class DashboardFragment extends Fragment
 
     public static double last_hr_meas = -1;
     public static double last_temp_meas = -1;
+    ProgressDialog btWait;
+
+    public int numMeasurements = 1;
 
    ArrayList<Object[]> heartMeasurements = new ArrayList<Object[]>();
     ArrayList<Object[]> tempMeasurements = new ArrayList<Object[]>();
 
-    Handler locationFoundHandler = new Handler()
+    public Handler locationFoundHandler = new Handler()
     {
             public void handleMessage(Message msg)
             {
                 locationManager.removeUpdates(locationListener);
                 locationListener = null;
-                Bundle data = msg.getData();
+                final Bundle data = msg.getData();
                 ParseObject locObject = new ParseObject("DataMeasurement");
-                locObject.put("heartrate", Double.parseDouble(simulatedHeart.getText().toString()));
-                locObject.put("temperature", Double.parseDouble(simulatedTemp.getText().toString()));
+                locObject.put("heartrate", data.getDouble("heartrate"));
+                locObject.put("temperature", data.getDouble("temperature"));
                 locObject.put("user", ParseUser.getCurrentUser());
                 locObject.put("lat", data.getDouble("lat"));
                 locObject.put("lng", data.getDouble("lng"));
@@ -98,8 +113,9 @@ public class DashboardFragment extends Fragment
                     {
                         if (e == null)
                         {
-                            Toast.makeText(getActivity(), "Measurement Saved", Toast.LENGTH_SHORT).show();
-                            addMeasurement(Double.parseDouble(simulatedHeart.getText().toString()), Double.parseDouble(simulatedTemp.getText().toString()));
+                            //Toast.makeText(getActivity(), "Measurement Saved", Toast.LENGTH_SHORT).show();
+                            //addMeasurement(data.getDouble("heartrate"), data.getDouble("temperature"));
+                            loadMetricsFromParse();
                         }
                         else
                         {
@@ -155,26 +171,26 @@ public class DashboardFragment extends Fragment
         tempMeasurements.clear();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("DataMeasurement");
         query.whereEqualTo("user", ParseUser.getCurrentUser());
-        query.orderByAscending("createdAt");
+        query.orderByDescending("createdAt");
         query.setLimit(15);
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> datapointList, ParseException e) {
                 if (e == null) {
+                    Collections.reverse(datapointList);
                     for (int i = 0; i < datapointList.size(); i++) {
                         ParseObject obj = datapointList.get(i);
                         heartMeasurements.add(new Object[]{obj.getCreatedAt(), obj.getDouble("heartrate")});
                         tempMeasurements.add(new Object[]{obj.getCreatedAt(), UnitConverter.cToF(obj.getDouble("temperature"))});
                     }
 
-                    ParseObject last = datapointList.get(datapointList.size()-1);
+                    ParseObject last = datapointList.get(datapointList.size() - 1);
                     last_hr_meas = last.getDouble("heartrate");
                     heartBpm.setText(last_hr_meas + " bpm");
                     last_temp_meas = UnitConverter.cToF(last.getDouble("temperature"));
                     NumberFormat formatter = new DecimalFormat("#0.0");
                     tempF.setText(formatter.format(last_temp_meas) + "° F");
 
-                    switch(getCurrentHealthStatus())
-                    {
+                    switch (getCurrentHealthStatus()) {
                         case HEALTHY:
                             healthStatus.setText("You are healthy!");
                             healthStatusImg.setImageDrawable(getActivity().getDrawable(R.drawable.meter_happy));
@@ -194,7 +210,7 @@ public class DashboardFragment extends Fragment
 
 
                     if (datapointList.size() > 2) {
-                        ParseObject penultimate = datapointList.get(datapointList.size()-2);
+                        ParseObject penultimate = datapointList.get(datapointList.size() - 2);
                         double penultimate_hr_meas = penultimate.getDouble("heartrate");
                         double penultimate_temp_meas = penultimate.getDouble("temperature");
 
@@ -413,7 +429,6 @@ public class DashboardFragment extends Fragment
                 break;
         }
 
-        loadMetricsFromParse();
     }
 
     protected void takeSimulatedDataPoint() {
@@ -431,9 +446,7 @@ public class DashboardFragment extends Fragment
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id)
                     {
-                        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-                        String locationProvider = LocationManager.NETWORK_PROVIDER;
-                        locationListener = new QSFLocationListener(locationFoundHandler);
+                        locationListener = new QSFLocationListener(locationFoundHandler, Double.parseDouble(simulatedHeart.getText().toString()), Double.parseDouble(simulatedTemp.getText().toString()));
                         locationManager.requestLocationUpdates(locationProvider, 1000, 0, locationListener);
                     }
                 })
@@ -448,6 +461,136 @@ public class DashboardFragment extends Fragment
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
     }
+    private BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
+        @Override
+        public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
+            Log.d("qsf", "Connect OK");
+            if (status == BluetoothGatt.GATT_SUCCESS
+                    && newState == BluetoothProfile.STATE_CONNECTED) {
+
+                Log.d("qsf", "Discovering Services...");
+                gatt.discoverServices();
+
+            } else if (status == BluetoothGatt.GATT_SUCCESS
+                    && newState == BluetoothProfile.STATE_DISCONNECTED) {
+
+                Log.d("qsf", "DISCONNECTED");
+
+            }
+        }
+
+        @Override
+        public void onServicesDiscovered(BluetoothGatt gatt, int status)
+        {
+            BluetoothGattService service = gatt.getService(Constants.QSF_SERVICE);
+            BluetoothGattCharacteristic rxCharc = service.getCharacteristic(Constants.QSF_DEVICE_RX_UUID);
+            BluetoothGattCharacteristic txCharc = service.getCharacteristic(Constants.QSF_DEVICE_TX_UUID);
+
+            gatt.setCharacteristicNotification(rxCharc, true);
+            BluetoothGattDescriptor clientConfig = rxCharc.getDescriptor(Constants.QSF_DEVICE_DESCRIPTOR);
+            clientConfig.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+            gatt.writeDescriptor(clientConfig);
+
+            //String data = "Z PLEASE FUCKING WORK";
+            //txCharc.setValue(data.getBytes());
+            //gatt.writeCharacteristic(txCharc);
+        }
+
+        public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
+            if (status == BluetoothGatt.GATT_SUCCESS) {
+                Log.d("qsf", "onCharacteristicRead ( characteristic :"
+                        + characteristic + " ,status, : " + status + ")");
+            }
+        }
+
+        public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic)
+        {
+            //super.onCharacteristicChanged(gatt, characteristic);
+            if(characteristic.getValue().length <= 8) { //sanity check for garbage data we get sometimes
+                String tmp = "";
+                for (int i = 0; i < characteristic.getValue().length; i++) { //dumb ASCII characters wtf
+                    if (characteristic.getValue()[i] > 32) {
+                        tmp += String.valueOf((char) characteristic.getValue()[i]);
+                    }
+                }
+
+                try
+                {
+                    final String data[] = tmp.split(":");
+                    if (data.length == 2) //make absolutely sure THERE ARE TWO THINGS IN THIS ARRAY.
+                    {
+                        if(btWait.isShowing())
+                        {
+                            btWait.dismiss();
+                        }
+
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run()
+                            {
+                                addMeasurement(Double.parseDouble(data[0]), Double.parseDouble(data[1]));
+
+                                if(numMeasurements++ >= 10)
+                                {
+                                    Log.d("qsf", "(Parse) hr is " + data[0] + ", tmp is " + data[1]);
+                                    numMeasurements = 1;
+                                    locationListener = new QSFLocationListener(locationFoundHandler, Double.parseDouble(data[0]), Double.parseDouble(data[1]));
+                                    locationManager.requestLocationUpdates(locationProvider, 1000, 0, locationListener);
+                                }
+                                else
+                                {
+                                    Log.d("qsf", "(Local) hr is " + data[0] + ", tmp is " + data[1]);
+                                }
+                            }
+                        });
+                    }
+                }
+                catch(Exception e){e.printStackTrace();}
+            }
+
+
+
+        }
+
+        @Override
+        public void onCharacteristicWrite(BluetoothGatt gatt,
+                                          BluetoothGattCharacteristic characteristic, int status) {
+            super.onCharacteristicWrite(gatt, characteristic, status);
+            if (status == BluetoothGatt.GATT_SUCCESS) {
+                Log.d("qsf", "onCharacteristicWrite ( characteristic :"
+                        + characteristic + " ,status : " + status + ")");
+            }
+        };
+
+        @Override
+        public void onDescriptorRead(BluetoothGatt gatt,
+                                     BluetoothGattDescriptor device, int status) {
+            Log.d("qsf", "onDescriptorRead (device : " + device + " , status :  "
+                    + status + ")");
+            super.onDescriptorRead(gatt, device, status);
+        }
+
+        @Override
+        public void onDescriptorWrite(BluetoothGatt gatt,
+                                      BluetoothGattDescriptor arg0, int status) {
+            Log.d("qsf", "onDescriptorWrite (arg0 : " + arg0 + " , status :  "
+                    + status + ")");
+            super.onDescriptorWrite(gatt, arg0, status);
+        }
+    };
+
+    public void onResume()
+    {
+        super.onResume();
+        if(MetricsActivity.chosen_one != null)
+        {
+                btWait = ProgressDialog.show(getActivity(), "Please Wait",
+                        "Connecting to your smart fashion device...", true);
+            MetricsActivity.chosen_one.connectGatt(getActivity(), true, mGattCallback);
+        }
+        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+    }
+
 
     public DashboardFragment()
     {
@@ -486,6 +629,7 @@ public class DashboardFragment extends Fragment
         tempHistory.getSettings().setAllowUniversalAccessFromFileURLs(true);
 
         loadMetricsFromParse();
+
         return rootView;
     }
 }

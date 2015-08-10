@@ -15,10 +15,13 @@ import com.parse.ParseUser;
 public class QSFLocationListener implements LocationListener
 {
     Handler handler;
+    double heartrate, temperature;
 
-    public QSFLocationListener(Handler handler)
+    public QSFLocationListener(Handler handler, double heartrate, double temperature)
     {
         this.handler = handler;
+        this.heartrate = heartrate;
+        this.temperature = temperature;
     }
 
     public void onStatusChanged(String provider, int status, Bundle extras) {}
@@ -33,6 +36,8 @@ public class QSFLocationListener implements LocationListener
             Bundle bundle = new Bundle();
             bundle.putDouble("lat", location.getLatitude());
             bundle.putDouble("lng", location.getLongitude());
+            bundle.putDouble("heartrate", heartrate);
+            bundle.putDouble("temperature", temperature);
             msg.setData(bundle);
             handler.sendMessage(msg);
         }

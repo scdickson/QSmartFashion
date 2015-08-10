@@ -1,6 +1,13 @@
 package com.qualcomm.qsmartfashion;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothGatt;
+import android.bluetooth.BluetoothGattCallback;
+import android.bluetooth.BluetoothGattCharacteristic;
+import android.bluetooth.BluetoothGattDescriptor;
+import android.bluetooth.BluetoothGattService;
+import android.bluetooth.BluetoothProfile;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -28,6 +35,9 @@ public class MetricsActivity extends ActionBarActivity implements NavigationDraw
 
     QSmartFashion application;
     private NavigationDrawerFragment mNavigationDrawerFragment;
+    public static double sampled_heartrate;
+    public static double sampled_temperature;
+    public static BluetoothDevice chosen_one;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -97,7 +107,7 @@ public class MetricsActivity extends ActionBarActivity implements NavigationDraw
                         .commit();
                 break;
             case 3:
-                mTitle = getString(R.string.title_section_devices);
+                mTitle = getString(R.string.title_section_contacts);
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, SOSContactFragment.newInstance(position + 1))
                         .commit();

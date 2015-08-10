@@ -13,8 +13,8 @@ public class Constants
     public static final double CENTIMETERS_PER_INCH = 2.54;
 
     //Parse keys
-    public static final String PARSE_APPLICATION_KEY = "Mk2JtBAAnX2YvoePfGz9OUSgCmgIbjBmg1ZpKuko";
-    public static final String PARSE_CLIENT_KEY = "l2yTXivnPawT72nueLBCmQQAY4cdkwpdjmXNBccw";
+    public static final String PARSE_APPLICATION_KEY = APP_KEY;
+    public static final String PARSE_CLIENT_KEY = CLIENT_KEY;
 
     //BLE Constants
     public static final int BLE_CUTOFF_RSSI = -100;

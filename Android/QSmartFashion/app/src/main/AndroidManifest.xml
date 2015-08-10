@@ -17,7 +17,7 @@
     <application
         android:name=".QSmartFashion"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/profile_anon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -28,7 +28,7 @@
         </activity>
         <activity
             android:name=".MetricsActivity"
-            android:label="@string/title_activity_metrics" >
+            android:label="QSmartFashion" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
