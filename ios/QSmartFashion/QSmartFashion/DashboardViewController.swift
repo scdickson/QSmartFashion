@@ -182,8 +182,8 @@ class DashboardViewController: UITableViewController, UIWebViewDelegate {
                 }
             }
             
-            let joinedLabels = ",".join(components.labels)
-            let joinedData = ",".join(components.data)
+            let joinedLabels = components.labels.joinWithSeparator(",")
+            let joinedData = components.data.joinWithSeparator(",")
             let js = "var hrData = {" +
                 "labels: [\(joinedLabels)], " +
                 "datasets: [{" +

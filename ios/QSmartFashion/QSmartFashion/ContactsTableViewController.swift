@@ -88,7 +88,7 @@ class ContactsTableViewController: UITableViewController, CNContactPickerDelegat
         let newContact = SFEmergencyContact(user: PFUser.currentUser()!)
         
         if nameComponents.count > 0 {
-            newContact.name = " ".join(nameComponents)
+            newContact.name = nameComponents.joinWithSeparator(" ")
         } else {
             newContact.name = "No Name"
             // @todo alert user that the contact has no name

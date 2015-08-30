@@ -20,28 +20,32 @@ enum ContactCacheStoreError: ErrorType {
 
 class ContactCacheManager {
     
-    private class var cachePath: String {
+    private class var cacheURL: NSURL {
         let paths = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)
         
-        guard let path = paths.first else {
+        guard let directoryPath = paths.first else {
             fatalError("there is no caches directory")
         }
+        let directoryURL = NSURL(fileURLWithPath: directoryPath, isDirectory: true)
         
-        return path.stringByAppendingPathComponent("contacts")
+        return directoryURL.URLByAppendingPathComponent("contacts")
     }
-    private class var contactsPath: String {
-        return cachePath.stringByAppendingPathComponent("contacts.plist")
+    private class var contactsCacheURL: NSURL {
+        return cacheURL.URLByAppendingPathComponent("contacts.plist")
+    }
+    private class func photoCacheURL(contactId: String) -> NSURL {
+        return cacheURL.URLByAppendingPathComponent("\(contactId).png")
     }
     
     /// Throws: ContactCacheFetchError
     class func fetchContacts() throws -> [SFEmergencyContact] {
         let fileManager = NSFileManager.defaultManager()
         
-        guard fileManager.fileExistsAtPath(contactsPath) else {
+        guard fileManager.fileExistsAtPath(contactsCacheURL.path!) else {
             throw ContactCacheFetchError.NotCached
         }
         
-        let contacts = NSKeyedUnarchiver.unarchiveObjectWithFile(contactsPath) as! [SFEmergencyContact]
+        let contacts = NSKeyedUnarchiver.unarchiveObjectWithFile(contactsCacheURL.path!) as! [SFEmergencyContact]
 
         for contact in contacts {
             loadPicture(forContact: contact)
@@ -52,9 +56,9 @@ class ContactCacheManager {
     
     class func cacheContacts(contacts: [SFEmergencyContact]) throws {
         let fileManager = NSFileManager.defaultManager()
-        if !fileManager.fileExistsAtPath(cachePath) {
+        if !fileManager.fileExistsAtPath(cacheURL.path!) {
             do {
-                try fileManager.createDirectoryAtPath(cachePath,
+                try fileManager.createDirectoryAtPath(cacheURL.path!,
                     withIntermediateDirectories: true,
                     attributes: nil
                 )
@@ -63,7 +67,7 @@ class ContactCacheManager {
             }
         }
         
-        if !NSKeyedArchiver.archiveRootObject(contacts, toFile: contactsPath) {
+        if !NSKeyedArchiver.archiveRootObject(contacts, toFile: contactsCacheURL.path!) {
             throw ContactCacheStoreError.UnableToCache
         }
         
@@ -77,8 +81,8 @@ class ContactCacheManager {
             print("\(contact.name) does not have a contact id?")
             return
         }
-        let photoPath = cachePath.stringByAppendingPathComponent("\(contactId).png")
-        guard let photoData = NSData(contentsOfFile: photoPath) else {
+        
+        guard let photoData = NSData(contentsOfURL: photoCacheURL(contactId)) else {
             print("\(contact.name) does not have a cached photo")
             return
         }
@@ -103,7 +107,6 @@ class ContactCacheManager {
             print("unable to get data from photo??")
             return
         }
-        let photoPath = cachePath.stringByAppendingPathComponent("\(contactId).png")
-        photoData.writeToFile(photoPath, atomically: true)
+        photoData.writeToURL(photoCacheURL(contactId), atomically: true)
     }
 }
